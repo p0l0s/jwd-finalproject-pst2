@@ -4,6 +4,7 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="resources/css/style.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -19,11 +20,13 @@
             <h1>New Tasks</h1>
         </div>
 
+        <!--Name element.-->
         <div class="col-sm-12 text-left"> 
             <h3>Name:</h3>
             <textarea class="form-control" rows="1" id="comment"></textarea>
         </div> 
 
+        <!--Description element.-->
         <div class="col-sm-12 text-left"> 
             <div class="form-group">
             <h3>Description:</h3>
@@ -31,6 +34,7 @@
             </div> 
         </div>
 
+        <!--Assigned to: element.-->
         <div class="col-sm-6 text-left"> 
             <h3>Assigned to:</h3>
             <div class="dropdown">
@@ -38,24 +42,54 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li>Tetiana Chorna</li>
-                    <li>Michael Simms</li>
-                    <li>Yared Nigatu</li>
-                    <li>Jenna Sosa</li>
-                    <li>Kathryn Williams</li>
+                    <li>Tetiana "Tiger" Chorna</li>
+                    <li>Michael "Maine Coon" Simms</li>
+                    <li>Yared "Ocelot" Nigatu</li>
+                    <li>Jenna "Jaguar" Sosa</li>
+                    <li>Kathryn "Wildcat" Williams</li>
                 </ul>
             </div>
         </div>
-
-        <div class="col-sm-6 text-left"> 
-            <h3>Due Date:</h3>
-            <p>Datapicker</p>
+        
+        <!--This is the date picker element.-->
+        
+        <div class="col-sm-6 text-left d-flex justify-content-end" style="height:130px;">
+            <div class="form-group">
+                <h3>Due Date:</h3>
+                <div class='input-group date' id='datetimepicker11'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar">
+                </span>
+                </span>
+                </div>
+            </div>
         </div>
-
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker11').datetimepicker({
+                    daysOfWeekDisabled: [0, 6]
+                });
+            });
+        </script>
+             
+        
+        
         <div class="col-sm-12"> 
             <button type="button" class="btn btn-info btn-lg btn-block">Add Task</button>
         </div>
     </div>
+
+    <footer class="footer">
+        <p>Final Project for <a href="https://usa.generation.org/dc/junior-web-developer/" target="_blank">Generation USA Jr. Web Developer Bootcamp.</a></p>
+        <span>Work by: 
+          <a href="https://www.linkedin.com/in/tetiana-chorna-069bab112/" target="_blank">Tetiana Chorna</a>
+          <a href="#" target="_blank">Yared Nigatu</a>
+          <a href="https://www.linkedin.com/in/jenna-sosa/" target="_blank">Jenna Sosa</a>
+          <a href="https://www.linkedin.com/in/michael-simms-11318b201/" target="_blank">Michael Simms</a>
+          <a href="https://www.linkedin.com/in/kathrynwilliams95/" target="_blank">Kathryn Williams</a>
+        </span>
+      </footer>
 
 </body>
 </html>

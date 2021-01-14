@@ -1,1 +1,15 @@
 
+.footer {
+    padding: .5rem 0;
+    color: #727272;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+    margin-top: 2rem;
+    /*Michael wanted to add and another kitten image here as background. 
+    background-image: url("/resources/img/kitten-footer.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    */
+}
