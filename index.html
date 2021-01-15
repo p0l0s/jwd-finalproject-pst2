@@ -5,16 +5,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="resources/css/style.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
-<body>
-  <div class="container text-center">    
-        <div class="col-sm-12 text-left"> 
-            <img src="http://placekitten.com/g/1200/200" alt="banner" style="width: 100%; max-height: 200px">
-        </div>
+<body> 
+        <div class="container text-center">
+        <!--Header-->
+        <header>    
+            <div class="col-sm-12 text-left"> 
+                <img src="http://placekitten.com/g/1200/200" alt="banner" style="width: 100%; max-height: 200px">
+            </div>
+        </header>
 
         <div class="col-sm-12 text-left"> 
             <h1>New Tasks</h1>
@@ -38,31 +42,52 @@
         <div class="col-sm-6 text-left"> 
             <h3>Assigned to:</h3>
             <div class="dropdown">
-                <button class="btn btn-default btn-block dropdown-toggle text-left" type="button" data-toggle="dropdown"><span class="pull-left">Select User</span><span class="pull-right"><span class="caret"></span></span></span>
-                    
+                <button class="btn btn-default btn-block dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">
+                  Select User
+                  
+                  
                 </button>
-                <ul class="dropdown-menu col-sm-12">
+                <ul class="dropdown-menu col-sm-12 pl-2">
                     <li>Tetiana "Tiger" Chorna</li>
                     <li>Michael "Maine Coon" Simms</li>
                     <li>Yared "Ocelot" Nigatu</li>
                     <li>Jenna "Jaguar" Sosa</li>
                     <li>Kathryn "Wildcat" Williams</li>
                 </ul>
-            </div>
+              </div>
         </div>
-        
-        <!--This is the date picker element.-->
-        
-        <div class="col-sm-6 text-left d-flex justify-content-end" style="height:130px;">
-            <div class="form-group">
-                <h3>Due Date:</h3>
-                <div class='input-group date' id='datetimepicker11'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar">
-                </span>
-                </span>
+
+    <div class="col-sm-12 text-left"><br></div>
+
+    <div class="col-sm-12"> 
+        <button type="button" class="btn btn-info btn-lg btn-block">Add Task</button>
+    </div>
+
+    <div class="col-sm-12 text-left"><br></div>
+
+    <div class="col-sm-12 text-left"> 
+      <h3 class="text-danger">Open Tasks:</h3></div>
+        <div class="col-sm-12 text-left"> 
+          <div class="card-deck">
+            <div class="card mb-6 width="200">
+              <div class="card-body">
+                <h4 class="card-title">Task name</h4>
+                <span class="badge badge-danger">Open</span>
+                <br>
+                <small class="text-muted">Assigned to: ...</small>
+                <br>
+                <small class="text-muted">Due to: ...</small>
+                <p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description.</p>
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
+                    <ul class="dropdown-menu pl-2">
+                      <li>Closed</li>
+                      <li>In Progress</li>
+                      <li>Pending</li>
+                    </ul>
+                  <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
                 </div>
+              </div>
             </div>
         </div>
         <script type="text/javascript">
@@ -98,14 +123,139 @@
             <li class="list-group-item">Vestibulum at eros</li>
           </ul>
 
-    <!--footer-->
+    
+          <div class="card mb-6">
+            <div class="card-body">
+               <h4 class="card-title">Task name</h4>
+               <span class="badge badge-primary">In Progress</span>
+               <br>
+               <small class="text-muted">Assigned to: ...</small>
+               <br>
+               <small class="text-muted">Due to: ...</small>
+               <p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description.</p>
+               <div class="dropdown">
+                 <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
+                   <ul class="dropdown-menu pl-2">
+                     <li>Closed</li>
+                     <li>Open</li>
+                     <li>Pending</li>
+                   </ul>
+                 <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
+               </div>
+             </div>
+         </div>
+          <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+          <div class="card mb-6">
+            <div class="card-body">
+               <h4 class="card-title">Task name</h4>
+               <span class="badge badge-warning">In Progress</span>
+               <br>
+               <small class="text-muted">Assigned to: ...</small>
+               <br>
+               <small class="text-muted">Due to: ...</small>
+               <p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description.</p>
+               <div class="dropdown">
+                 <button class="btn btn-default dropdown-toggle btn-outline-secondary  text-left" type="button" data-toggle="dropdown">Change Status</button>
+                   <ul class="dropdown-menu pl-2">
+                     <li>Closed</li>
+                     <li>Open</li>
+                     <li>Pending</li>
+                   </ul>
+                 <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
+               </div>
+             </div>
+         </div>
+          </div>
+          <div class="col-sm-12 text-left"> 
+            <br>
+          </div></div>
+
+          <div class="col-sm-12 text-left"> 
+            <h3 class="text-success" >Closed Tasks:</h3></div>
+            <div class="col-sm-12 text-left"> 
+          <div class="card-deck">
+            <div class="card mb-6">
+               <div class="card-body">
+                  <h4 class="card-title">Task name</h4>
+                  <span class="badge badge-success">Closed</span>
+                  <br>
+                  <small class="text-muted">Assigned to: ...</small>
+                  <br>
+                  <small class="text-muted">Due to: ...</small>
+                  <p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description.</p>
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle btn-outline-secondary  text-left" type="button" data-toggle="dropdown">Change Status</button>
+                      <ul class="dropdown-menu pl-2">
+                        <li>In Progress</li>
+                        <li>Opened</li>
+                        <li>Pending</li>
+                      </ul>
+                    <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
+                  </div>
+                </div>
+            </div>
+            <div class="card mb-6">
+              <div class="card-body">
+                 <h4 class="card-title">Task name</h4>
+                 <span class="badge badge-success">Closed</span>
+                 <br>
+                 <small class="text-muted">Assigned to: ...</small>
+                 <br>
+                 <small class="text-muted">Due to: ...</small>
+                 <p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description.</p>
+                 <div class="dropdown">
+                   <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
+                     <ul class="dropdown-menu pl-2">
+                      <li>In Progress</li>
+                      <li>Opened</li>
+                      <li>Pending</li>
+                     </ul>
+                   <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
+                 </div>
+               </div>
+           </div>
+            <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+            <div class="card mb-6">
+              <div class="card-body">
+                 <h4 class="card-title">Task name</h4>
+                 <span class="badge badge-success">Closed</span>
+                 <br>
+                 <small class="text-muted">Assigned to: ...</small>
+                 <br>
+                 <small class="text-muted">Due to: ...</small>
+                 <p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description.</p>
+                 <div class="dropdown">
+                   <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
+                     <ul class="dropdown-menu pl-2">
+                      <li>In Progress</li>
+                      <li>Opened</li>
+                      <li>Pending</li>
+                     </ul>
+                   <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
+                 </div>
+               </div>
+           </div>
+            </div></div>
+
+
+      </div></div>
+
+
+
+
+
+
+    </div>
+
+    
+<!--footer-->
     <footer class="footer">
         <p>Final Project for <a href="https://usa.generation.org/dc/junior-web-developer/" target="_blank">Generation USA Jr. Web Developer Bootcamp.</a></p>
         <span>Work by: 
-          <a href="https://www.linkedin.com/in/tetiana-chorna-069bab112/" target="_blank">Tetiana Chorna</a>
-          <a href="#" target="_blank">Yared Nigatu</a>
-          <a href="https://www.linkedin.com/in/jenna-sosa/" target="_blank">Jenna Sosa</a>
-          <a href="https://www.linkedin.com/in/michael-simms-11318b201/" target="_blank">Michael Simms</a>
+          <a href="https://www.linkedin.com/in/tetiana-chorna-069bab112/" target="_blank">Tetiana Chorna</a>&nbsp;|
+          <a href="#" target="_blank">Yared Nigatu</a>&nbsp;|
+          <a href="https://www.linkedin.com/in/jenna-sosa/" target="_blank">Jenna Sosa</a>&nbsp;|
+          <a href="https://www.linkedin.com/in/michael-simms-11318b201/" target="_blank">Michael Simms</a>&nbsp;|
           <a href="https://www.linkedin.com/in/kathrynwilliams95/" target="_blank">Kathryn Williams</a>
         </span>
       </footer>
