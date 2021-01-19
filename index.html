@@ -16,558 +16,574 @@
 </head>
 
 <body>
-        <div class="container">
-  
-        <!--Header-->
-        <div class="row"><header>    
-            
+  <div class="container">
+    <!--Header-->
+    <div class="row">
+      <header>    
+      <img class="img-fluid" src="http://placekitten.com/g/1200/200" alt="top-banner" >
+      </header>
+    </div>
 
-                <img class="img-fluid" src="http://placekitten.com/g/1200/200" alt="top-banner" >
-            
-        </header></div>
+    <div class="row pt-3"> 
+      <h1>New Tasks</h1>
+    </div>
 
-        <div class="row pt-3"> 
-            <h1>New Tasks</h1>
-        </div>
+    <!--Name element.-->
+    <div class="row pt-3"> 
+      <h3>Name:</h3>
+      <textarea class="form-control"  rows="1" id="comment"></textarea>
+    </div> 
 
-        <!--Name element.-->
-        <div class="row pt-3"> 
-            <h3>Name:</h3>
-            <textarea class="form-control" rows="1" id="comment"></textarea>
-        </div> 
-
-        <!--Description element.-->
-        <div class="row pt-3"> 
-            
-            <h3>Description:</h3>
-            <textarea class="form-control" rows="5" id="comment"></textarea>
-            
-        </div>
+    <!--Description element.-->
+    <div class="row pt-3"> 
+      <h3>Description:</h3>
+      <textarea class="form-control" rows="5" id="comment"></textarea>
+    </div>
         
-        
-        <!--Dropdown Assign to: element.-->
-        <div class="row pt-3">
-            
-              
-                <div class="col-sm-6 text-left p-0"> 
-                <h3>Assigned to:</h3></div>
-                <div class="col-sm-6 text-left p-0"> 
-                  <h3>Due By:</h3></div>
-                </div>
-
-
-                <div class="row">
-                <div class="col-sm-6 text-left p-0 pr-2">
-                  <div class="dropdown">
-                    <button class="btn btn-default btn-block dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">
-                    Select User
-                    </button>
-                    <ul class="dropdown-menu pl-2 w-100">
-                      <li>Tetiana "Cat" Chorna</li>
-                      <li>Michael "Maine Coon" Simms</li>
-                      <li>Yared "Ocelot" Nigatu</li>
-                      <li>Jenna "Jaguar" Sosa</li>
-                      <li>Kathryn "Wildcat" Williams</li>
-                    </ul>
-                 
-                </div></div>
-
-                <!--Datepicker-->
-        
-                <div class="col-sm-6 p-0 pl-2">
-                <input id="datepicker" width="100%">
-                <script>
-                $('#datepicker').datepicker({
-                uiLibrary: 'bootstrap4'
-                });
-                </script>
-                </div>
-               
-        </div> 
-
-      
-
-      <!--Add Task Button-->
-      <div class="row pt-4"> 
-      <button type="button" class="btn btn-info btn-lg btn-block">Add Task</button>
+    <!--Dropdown Assign to: element.-->
+    <div class="row pt-3">
+      <div class="col-sm-6 text-left p-0"> 
+        <h3>Assigned to:</h3>
       </div>
+      <div class="col-sm-6 text-left p-0"> 
+        <h3>Due By:</h3>
+      </div>
+    </div>
 
-      
-
-    <!--Card Deck for Open Cards-->
-    
-      
-
-        <div class="row pt-5">
-          <h3 class="text-danger">Closed Tasks:</h3>
+    <div class="row">
+      <div class="col-sm-6 text-left p-0 pr-2">
+        <div class="dropdown">
+          <button class="btn btn-default btn-block dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Select User</button>
+          <ul class="dropdown-menu pl-2 w-100">
+            <li>Tetiana "Cat" Chorna</li>
+            <li>Michael "Maine Coon" Simms</li>
+            <li>Yared "Ocelot" Nigatu</li>
+            <li>Jenna "Jaguar" Sosa</li>
+            <li>Kathryn "Wildcat" Williams</li>
+          </ul>
         </div>
+      </div>
+      <!--Datepicker-->
+      <div class="col-sm-6 p-0 pl-2">
+        <input id="datepicker" width="100%">
+        <script>
+        $('#datepicker').datepicker({
+        uiLibrary: 'bootstrap4'
+        });
+        </script>
+      </div>
+    </div> 
 
-        
-          <div class="row">
+    <!--Add Task Button-->
+    <div class="row pt-4"> 
+    <button type="button" class="btn btn-info btn-lg btn-block">Add Task</button>
+    </div>
 
-            <div class="col-sm-6 p-0 pb-3 pr-2">
-            <div class="card mb-6">
-             <div class="card-body">
+    <!--Card Row for Open Tasks-->
+    <div class="row pt-5">
+      <h3 class="text-danger">Open Tasks:</h3>
+    </div>
 
-              <div class="row"> <div class="col-sm-9">
+    <div class="row">
+      <div class="col-sm-6 p-0 pb-3 pr-2">
+        <div class="card mb-6">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-9">
                 <h4 class="card-title">Task name Task name Task name Task name Task name</h4>
               </div>
-                <div class="col-sm-3 text-right">
+              <div class="col-sm-3 text-right">
                 <h4><span class="badge badge-danger">Open</span></h4>
-                </div> </div>
-
-                <div class="row"> <div class="col-sm-6">
-                  <small class="text-muted">Assigned to: ...</small>
-                </div>
-                  <div class="col-sm-6">
-                    <small class="text-muted">Due to: ...</small>
-                  </div> </div>
-                
-                  <div class="row">
-                    <div class="col-sm-12 pt-2 pb-2"><p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
-                  </div></div>
-                  
-                  <div class="row"><div class="col-sm-12 text-right">
-                    <div class="dropdown">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <small class="text-muted">Assigned to: ...</small>
+              </div>
+              <div class="col-sm-6">
+                <small class="text-muted">Due to: ...</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 pt-2 pb-2">
+                <p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 text-right">
+                <div class="dropdown">
                   <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
                     <ul class="dropdown-menu pl-2">
                       <li>Closed</li>
                       <li>In Progress</li>
                       <li>Pending</li>
                     </ul>
-                  <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
-                </div></div>
+                  <button type="button" class="btn btn-default btn-outline-secondary">Delete</button>
+                </div>
               </div>
-            </div></div></div>
-            
-          
-
-            <div class="col-sm-6 p-0 pb-3 pl-2">
-              <div class="card mb-6">
-               <div class="card-body">
-
-                <div class="row"> <div class="col-sm-9">
-                  <h4 class="card-title">Task name Task name Task name Task name Task name</h4>
-                </div>
-                  <div class="col-sm-3 text-right">
-                  <h4><span class="badge badge-danger">Open</span></h4>
-                  </div> </div>
-
-                  <div class="row"> <div class="col-sm-6">
-                    <small class="text-muted">Assigned to: ...</small>
-                  </div>
-                    <div class="col-sm-6">
-                      <small class="text-muted">Due to: ...</small>
-                    </div> </div>
-                  
-                    <div class="row">
-                      <div class="col-sm-12 pt-2 pb-2"><p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
-                    </div></div>
-                    
-                    <div class="row"><div class="col-sm-12 text-right">
-                      <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
-                      <ul class="dropdown-menu pl-2">
-                        <li>Close</li>
-                        <li>In Progress</li>
-                        <li>Pending</li>
-                      </ul>
-                    <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
-                  </div></div>
-                </div>
-              </div></div></div>
-
-              <div class="col-sm-6 p-0 pb-3 pr-2">
-                <div class="card mb-6">
-                 <div class="card-body">
-  
-                  <div class="row"> <div class="col-sm-9">
-                    <h4 class="card-title">Task name Task name Task name Task name Task name</h4>
-                  </div>
-                    <div class="col-sm-3 text-right">
-                    <h4><span class="badge badge-primary">In Progress</span></h4>
-                    </div> </div>
-  
-                    <div class="row"> <div class="col-sm-6">
-                      <small class="text-muted">Assigned to: ...</small>
-                    </div>
-                      <div class="col-sm-6">
-                        <small class="text-muted">Due to: ...</small>
-                      </div> </div>
-                    
-                      <div class="row">
-                        <div class="col-sm-12 pt-2 pb-2"><p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
-                      </div></div>
-                      
-                      <div class="row"><div class="col-sm-12 text-right">
-                        <div class="dropdown">
-                      <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
-                        <ul class="dropdown-menu pl-2">
-                          <li>Closed</li>
-                          <li>Open</li>
-                          <li>Pending</li>
-                        </ul>
-                      <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
-                    </div></div>
-                  </div>
-                </div></div></div>
-
-                <div class="col-sm-6 p-0 pb-3 pl-2">
-                  <div class="card mb-6">
-                   <div class="card-body">
-    
-                    <div class="row"> <div class="col-sm-9">
-                      <h4 class="card-title">Task name Task name Task name Task name Task name</h4>
-                    </div>
-                      <div class="col-sm-3 text-right">
-                      <h4><span class="badge badge-warning">Pending</span></h4>
-                      </div> </div>
-    
-                      <div class="row"> <div class="col-sm-6">
-                        <small class="text-muted">Assigned to: ...</small>
-                      </div>
-                        <div class="col-sm-6">
-                          <small class="text-muted">Due to: ...</small>
-                        </div> </div>
-                      
-                        <div class="row">
-                          <div class="col-sm-12 pt-2 pb-2"><p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
-                        </div></div>
-                        
-                        <div class="row"><div class="col-sm-12 text-right">
-                          <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
-                          <ul class="dropdown-menu pl-2">
-                            <li>Closed</li>
-                            <li>Open</li>
-                            <li>Pending</li>
-                          </ul>
-                        <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
-                      </div></div>
-                    </div>
-                  </div></div></div>
-
-
-        </div>
-        
-
-          <!--Card Deck for Closed Tasks-->
-          <div class="row pt-5">
-            <h3 class="text-success">Closed Tasks:</h3>
+            </div>
           </div>
-
-          
-            <div class="row">
-
-              <div class="col-sm-6 p-0 pb-3 pr-2">
-              <div class="card mb-6">
-               <div class="card-body">
-
-                <div class="row"> <div class="col-sm-9">
-                  <h4 class="card-title">Task name Task name Task name Task name Task name</h4>
-                </div>
-                  <div class="col-sm-3 text-right">
-                  <h4><span class="badge badge-success">Closed</span></h4>
-                  </div> </div>
-
-                  <div class="row"> <div class="col-sm-6">
-                    <small class="text-muted">Assigned to: ...</small>
-                  </div>
-                    <div class="col-sm-6">
-                      <small class="text-muted">Due to: ...</small>
-                    </div> </div>
-                  
-                    <div class="row">
-                      <div class="col-sm-12 pt-2 pb-2"><p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
-                    </div></div>
-                    
-                    <div class="row"><div class="col-sm-12 text-right">
-                      <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
-                      <ul class="dropdown-menu pl-2">
-                        <li>In Progress</li>
-                        <li>Open</li>
-                        <li>Pending</li>
-                      </ul>
-                    <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
-                  </div></div>
-                </div>
-              </div></div></div>
-              
-            
-
-              <div class="col-sm-6 p-0 pb-3 pl-2">
-                <div class="card mb-6">
-                 <div class="card-body">
-  
-                  <div class="row"> <div class="col-sm-9">
-                    <h4 class="card-title">Task name Task name Task name Task name Task name</h4>
-                  </div>
-                    <div class="col-sm-3 text-right">
-                    <h4><span class="badge badge-success">Closed</span></h4>
-                    </div> </div>
-  
-                    <div class="row"> <div class="col-sm-6">
-                      <small class="text-muted">Assigned to: ...</small>
-                    </div>
-                      <div class="col-sm-6">
-                        <small class="text-muted">Due to: ...</small>
-                      </div> </div>
-                    
-                      <div class="row">
-                        <div class="col-sm-12 pt-2 pb-2"><p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
-                      </div></div>
-                      
-                      <div class="row"><div class="col-sm-12 text-right">
-                        <div class="dropdown">
-                      <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
-                        <ul class="dropdown-menu pl-2">
-                          <li>In Progress</li>
-                          <li>Open</li>
-                          <li>Pending</li>
-                        </ul>
-                      <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
-                    </div></div>
-                  </div>
-                </div></div></div>
-
-                <div class="col-sm-6 p-0 pb-3 pr-2">
-                  <div class="card mb-6">
-                   <div class="card-body">
-    
-                    <div class="row"> <div class="col-sm-9">
-                      <h4 class="card-title">Task name Task name Task name Task name Task name</h4>
-                    </div>
-                      <div class="col-sm-3 text-right">
-                      <h4><span class="badge badge-success">Closed</span></h4>
-                      </div> </div>
-    
-                      <div class="row"> <div class="col-sm-6">
-                        <small class="text-muted">Assigned to: ...</small>
-                      </div>
-                        <div class="col-sm-6">
-                          <small class="text-muted">Due to: ...</small>
-                        </div> </div>
-                      
-                        <div class="row">
-                          <div class="col-sm-12 pt-2 pb-2"><p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
-                        </div></div>
-                        
-                        <div class="row"><div class="col-sm-12 text-right">
-                          <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
-                          <ul class="dropdown-menu pl-2">
-                            <li>In Progress</li>
-                            <li>Open</li>
-                            <li>Pending</li>
-                          </ul>
-                        <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
-                      </div></div>
-                    </div>
-                  </div></div></div>
-
-                  <div class="col-sm-6 p-0 pb-3 pl-2">
-                    <div class="card mb-6">
-                     <div class="card-body">
-      
-                      <div class="row"> <div class="col-sm-9">
-                        <h4 class="card-title">Task name Task name Task name Task name Task name</h4>
-                      </div>
-                        <div class="col-sm-3 text-right">
-                        <h4><span class="badge badge-success">Closed</span></h4>
-                        </div> </div>
-      
-                        <div class="row"> <div class="col-sm-6">
-                          <small class="text-muted">Assigned to: ...</small>
-                        </div>
-                          <div class="col-sm-6">
-                            <small class="text-muted">Due to: ...</small>
-                          </div> </div>
-                        
-                          <div class="row">
-                            <div class="col-sm-12 pt-2 pb-2"><p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
-                          </div></div>
-                          
-                          <div class="row"><div class="col-sm-12 text-right">
-                            <div class="dropdown">
-                          <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
-                            <ul class="dropdown-menu pl-2">
-                              <li>In Progress</li>
-                              <li>Open</li>
-                              <li>Pending</li>
-                            </ul>
-                          <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
-                        </div></div>
-                      </div>
-                    </div></div></div>
-
-
-          </div>
-          
-          
-
-
-
-    <!--List group for the open task cards-->
-   
-      <div class="row">
-        
-        <div class="col-sm-6 mt-5 text-left p-0 pr-2"> 
-            <h3 class="text-danger">Open Tasks</h3>
-            <ul class="list-group text-left">
-                <li class="list-group-item p-0 pb-4 border-0">
-                    <div class="card mb-6">
-                        <div class="card-header bg-primary text-white font-weight-bold">Fancy Cat Title</div>
-                        <div class="card-body">
-                           <span class="badge badge-primary">In Progress</span>
-                           <br>
-                           <small class="text-muted">Assigned to: ...</small>
-                           <br>
-                           <small class="text-muted">Due to: ...</small>
-                           <p class="card-text">Empty the kitty litter</p>
-                           <div class="dropdown">
-                             <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
-                               <ul class="dropdown-menu px-3">
-                                    <li>Open - Get Started!</li> 
-                                    <li>Pending - Look, it's done!</li>
-                                    <li>Closed - It's Done!</li>
-                               </ul>
-                             <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
-                           </div>
-                         </div>
-                    </div>
-                </li>
-                <li class="list-group-item p-0 pb-4 border-0">
-                    <div class="card mb-6">
-                        <div class="card-header bg-danger text-white font-weight-bold">New Kitty Adoption Task Title</div>
-                        <div class="card-body">
-                           <span class="badge badge-danger">Open</span>
-                           <br>
-                           <small class="text-muted">Assigned to: ...</small>
-                           <br>
-                           <small class="text-muted">Due to: ...</small>
-                           <p class="card-text">Adopt a new kitty and give it a new name. The cuteness of the name should be the same as the cuteness of the kitty.</p>
-                           <div class="dropdown">
-                             <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
-                               <ul class="dropdown-menu px-3">
-                                    <li>In Progress - I'm doing it!</li> 
-                                    <li>Pending - Look, it's done!</li>
-                                    <li>Closed - It's Done!</li>
-                               </ul>
-                             <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
-                           </div>
-                         </div>
-                    </div>
-                </li>
-                <li class="list-group-item p-0 pb-4 border-0">
-                    <div class="card mb-6">
-                        <div class="card-header bg-primary text-white font-weight-bold">Just another Task Title</div>
-                        <div class="card-body">
-                           <span class="badge badge-primary">In Progress</span>
-                           <br>
-                           <small class="text-muted">Assigned to: ...</small>
-                           <br>
-                           <small class="text-muted">Due to: ...</small>
-                           <p class="card-text">How many of these do we have to create? Do we have too many kitties?</p>
-                           <div class="dropdown">
-                             <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
-                               <ul class="dropdown-menu px-3">
-                                <li>Open - Get Started!</li> 
-                                <li>Pending - Look, it's done!</li>
-                                <li>Closed - It's Done!</li>
-                               </ul>
-                             <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
-                           </div>
-                         </div>
-                    </div>
-                </li>
-            </ul>
         </div>
-        <div class="col-sm-6 mt-5 text-left p-0 pl-2">
-            <h3 class="text-success">Closed Tasks</h3> 
-            <ul class="list-group text-left">
-                <li class="list-group-item p-0 pb-4 border-0">
-                    <div class="card mb-6">
-                        <div class="card-header bg-success text-white font-weight-bold">Take Whiskey the Cat for a Walk</div>
-                        <div class="card-body">
-                           <span class="badge badge-success">Done!</span>
-                           <br>
-                           <small class="text-muted">Assigned to: ...</small>
-                           <br>
-                           <small class="text-muted">Due to: ...</small>
-                           <p class="card-text">It's a sunny day. Take the cat for a walk.</p>
-                           <div class="dropdown">
-                             <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
-                               <ul class="dropdown-menu px-3">
-                                <li>Open - Get Started!</li> 
-                                <li>In Progress - I'm doing it!</li>
-                                <li>Pending - Look, it's done!</li>  
-                               </ul>
-                             <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
-                           </div>
-                         </div>
-                    </div>
-                </li>
-                <li class="list-group-item p-0 pb-4 border-0">
-                    <div class="card mb-6">
-                        <div class="card-header bg-warning font-weight-bold">Brush cat fur off of sofa.</div>
-                        <div class="card-body">
-                           <span class="badge badge-warning">Pending</span>
-                           <br>
-                           <small class="text-muted">Assigned to: ...</small>
-                           <br>
-                           <small class="text-muted">Due to: ...</small>
-                           <p class="card-text">There is soooo much cat hair. I think we can save it and make a fur coat to wear to the opera.</p>
-                           <div class="dropdown">
-                             <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
-                               <ul class="dropdown-menu px-3">
-                                <li>Open - Get Started!</li> 
-                                <li>In Progress - I'm doing it!</li>
-                                <li>Closed - It's Done!</li> 
-                               </ul>
-                             <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
-                           </div>
-                         </div>
-                    </div>
-                </li>
-                <li class="list-group-item p-0 pb-4 border-0">                    
-                    <div class="card mb-6">
-                    <div class="card-header bg-success text-white font-weight-bold">Change the water in the bowl.</div>
-                    <div class="card-body">
-                       <span class="badge badge-success">Done!</span>
-                       <br>
-                       <small class="text-muted">Assigned to: ...</small>
-                       <br>
-                       <small class="text-muted">Due to: ...</small>
-                       <p class="card-text">We need to change the water bowl. Whiskey is starting to drink from the toilet again.</p>
-                       <div class="dropdown">
-                         <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
-                           <ul class="dropdown-menu px-3">
-                            <li>Open - Get Started!</li> 
-                            <li>In Progress - I'm doing it!</li>
-                            <li>Pending - Look, it's done!</li>  
-                           </ul>
-                         <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
-                       </div>
-                     </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    
       </div>
-    
-<!--footer--><div class="row">
-<footer class="footer">
-        <p>Final Project for <a href="https://usa.generation.org/dc/junior-web-developer/" target="_blank">Generation USA Jr. Web Developer Bootcamp.</a></p>
-        <span>Work by: 
-          <a href="https://www.linkedin.com/in/tetiana-chorna-069bab112/" target="_blank">Tetiana Chorna</a>&nbsp;|
-          <a href="#" target="_blank">Yared Nigatu</a>&nbsp;|
-          <a href="https://www.linkedin.com/in/jenna-sosa/" target="_blank">Jenna Sosa</a>&nbsp;|
-          <a href="https://www.linkedin.com/in/michael-simms-11318b201/" target="_blank">Michael Simms</a>&nbsp;|
-          <a href="https://www.linkedin.com/in/kathrynwilliams95/" target="_blank">Kathryn Williams</a>
-        </span>
-      </footer></div>
+            
+      <div class="col-sm-6 p-0 pb-3 pl-2">
+        <div class="card mb-6">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-9">
+                <h4 class="card-title">Task name Task name Task name Task name Task name</h4>
+              </div>
+              <div class="col-sm-3 text-right">
+                <h4><span class="badge badge-danger">Open</span></h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <small class="text-muted">Assigned to: ...</small>
+              </div>
+              <div class="col-sm-6">
+                <small class="text-muted">Due to: ...</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 pt-2 pb-2">
+                <p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 text-right">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
+                  <ul class="dropdown-menu pl-2">
+                    <li>Close</li>
+                    <li>In Progress</li>
+                    <li>Pending</li>
+                  </ul>
+                  <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 p-0 pb-3 pr-2">
+        <div class="card mb-6">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-9">
+                <h4 class="card-title">Task name Task name Task name Task name Task name</h4>
+              </div>
+              <div class="col-sm-3 text-right">
+                <h4><span class="badge badge-primary">In Progress</span></h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <small class="text-muted">Assigned to: ...</small>
+              </div>
+              <div class="col-sm-6">
+                <small class="text-muted">Due to: ...</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 pt-2 pb-2">
+                <p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 text-right">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
+                  <ul class="dropdown-menu pl-2">
+                    <li>Closed</li>
+                    <li>Open</li>
+                    <li>Pending</li>
+                  </ul>
+                  <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 p-0 pb-3 pl-2">
+        <div class="card mb-6">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-9">
+                <h4 class="card-title">Task name Task name Task name Task name Task name</h4>
+              </div>
+              <div class="col-sm-3 text-right">
+                <h4><span class="badge badge-warning">Pending</span></h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <small class="text-muted">Assigned to: ...</small>
+              </div>
+              <div class="col-sm-6">
+                <small class="text-muted">Due to: ...</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 pt-2 pb-2">
+                <p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 text-right">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
+                  <ul class="dropdown-menu pl-2">
+                    <li>Closed</li>
+                    <li>Open</li>
+                    <li>Pending</li>
+                  </ul>
+                  <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+        
+
+    <!--Card Deck for Closed Tasks-->
+    <div class="row pt-5">
+      <h3 class="text-success">Closed Tasks:</h3>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 p-0 pb-3 pr-2">
+        <div class="card mb-6">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-9">
+                <h4 class="card-title">Task name Task name Task name Task name Task name</h4>
+              </div>
+              <div class="col-sm-3 text-right">
+                <h4><span class="badge badge-success">Closed</span></h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <small class="text-muted">Assigned to: ...</small>
+              </div>
+              <div class="col-sm-6">
+                <small class="text-muted">Due to: ...</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 pt-2 pb-2">
+                <p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
+              </div>
+            </div>
+                    
+            <div class="row">
+              <div class="col-sm-12 text-right">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
+                  <ul class="dropdown-menu pl-2">
+                    <li>In Progress</li>
+                    <li>Open</li>
+                    <li>Pending</li>
+                  </ul>
+                  <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+              
+      <div class="col-sm-6 p-0 pb-3 pl-2">
+        <div class="card mb-6">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-9">
+                <h4 class="card-title">Task name Task name Task name Task name Task name</h4>
+              </div>
+              <div class="col-sm-3 text-right">
+                <h4><span class="badge badge-success">Closed</span></h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <small class="text-muted">Assigned to: ...</small>
+              </div>
+              <div class="col-sm-6">
+                <small class="text-muted">Due to: ...</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 pt-2 pb-2">
+                <p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 text-right">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
+                    <ul class="dropdown-menu pl-2">
+                      <li>In Progress</li>
+                      <li>Open</li>
+                      <li>Pending</li>
+                    </ul>
+                  <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 p-0 pb-3 pr-2">
+        <div class="card mb-6">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-9">
+                <h4 class="card-title">Task name Task name Task name Task name Task name</h4>
+              </div>
+              <div class="col-sm-3 text-right">
+                <h4><span class="badge badge-success">Closed</span></h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <small class="text-muted">Assigned to: ...</small>
+              </div>
+              <div class="col-sm-6">
+                <small class="text-muted">Due to: ...</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 pt-2 pb-2">
+                <p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
+              </div>
+            </div>           
+            <div class="row">
+              <div class="col-sm-12 text-right">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
+                  <ul class="dropdown-menu pl-2">
+                    <li>In Progress</li>
+                    <li>Open</li>
+                    <li>Pending</li>
+                  </ul>
+                  <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 p-0 pb-3 pl-2">
+        <div class="card mb-6">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-9">
+                <h4 class="card-title">Task name Task name Task name Task name Task name</h4>
+              </div>
+              <div class="col-sm-3 text-right">
+                <h4><span class="badge badge-success">Closed</span></h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <small class="text-muted">Assigned to: ...</small>
+              </div>
+              <div class="col-sm-6">
+                <small class="text-muted">Due to: ...</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 pt-2 pb-2">
+                <p class="card-text">Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description. Task description.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 text-right">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
+                  <ul class="dropdown-menu pl-2">
+                    <li>In Progress</li>
+                    <li>Open</li>
+                    <li>Pending</li>
+                  </ul>
+                  <button type="button" class="btn btn-default btn-outline-secondary ">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+          
+    <!--List group for the open task cards-->
+    <div class="row">
+      <div class="col-sm-6 mt-5 text-left p-0 pr-2"> 
+      <h3 class="text-danger">Open Tasks</h3>
+        <ul class="list-group text-left">
+          <li class="list-group-item p-0 pb-4 border-0">
+            <div class="card mb-6">
+              <div class="card-header bg-primary text-white font-weight-bold">Fancy Cat Title</div>
+              <div class="card-body">
+                <span class="badge badge-primary">In Progress</span>
+                <br>
+                <small class="text-muted">Assigned to: ...</small>
+                <br>
+                <small class="text-muted">Due to: ...</small>
+                <p class="card-text">Empty the kitty litter</p>
+                <div class="dropdown">
+                  <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
+                  <ul class="dropdown-menu px-3">
+                    <li>Open - Get Started!</li> 
+                    <li>Pending - Look, it's done!</li>
+                    <li>Closed - It's Done!</li>
+                  </ul>
+                  <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item p-0 pb-4 border-0">
+            <div class="card mb-6">
+              <div class="card-header bg-danger text-white font-weight-bold">New Kitty Adoption Task Title</div>
+              <div class="card-body">
+                <span class="badge badge-danger">Open</span>
+                <br>
+                <small class="text-muted">Assigned to: ...</small>
+                <br>
+                <small class="text-muted">Due to: ...</small>
+                <p class="card-text">Adopt a new kitty and give it a new name. The cuteness of the name should be the same as the cuteness of the kitty.</p>
+                <div class="dropdown">
+                  <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
+                  <ul class="dropdown-menu px-3">
+                    <li>In Progress - I'm doing it!</li> 
+                    <li>Pending - Look, it's done!</li>
+                    <li>Closed - It's Done!</li>
+                  </ul>
+                  <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item p-0 pb-4 border-0">
+            <div class="card mb-6">
+              <div class="card-header bg-primary text-white font-weight-bold">Just another Task Title</div>
+              <div class="card-body">
+                <span class="badge badge-primary">In Progress</span>
+                <br>
+                <small class="text-muted">Assigned to: ...</small>
+                <br>
+                <small class="text-muted">Due to: ...</small>
+                <p class="card-text">How many of these do we have to create? Do we have too many kitties?</p>
+                <div class="dropdown">
+                  <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
+                  <ul class="dropdown-menu px-3">
+                    <li>Open - Get Started!</li> 
+                    <li>Pending - Look, it's done!</li>
+                    <li>Closed - It's Done!</li>
+                  </ul>
+                  <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 mt-5 text-left p-0 pl-2">
+        <h3 class="text-success">Closed Tasks</h3> 
+        <ul class="list-group text-left">
+          <li class="list-group-item p-0 pb-4 border-0">
+            <div class="card mb-6">
+              <div class="card-header bg-success text-white font-weight-bold">Take Whiskey the Cat for a Walk</div>
+              <div class="card-body">
+                <span class="badge badge-success">Done!</span>
+                <br>
+                <small class="text-muted">Assigned to: ...</small>
+                <br>
+                <small class="text-muted">Due to: ...</small>
+                <p class="card-text">It's a sunny day. Take the cat for a walk.</p>
+                <div class="dropdown">
+                  <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
+                    <ul class="dropdown-menu px-3">
+                      <li>Open - Get Started!</li> 
+                      <li>In Progress - I'm doing it!</li>
+                      <li>Pending - Look, it's done!</li>  
+                    </ul>
+                  <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item p-0 pb-4 border-0">
+            <div class="card mb-6">
+              <div class="card-header bg-warning font-weight-bold">Brush cat fur off of sofa.</div>
+              <div class="card-body">
+                <span class="badge badge-warning">Pending</span>
+                <br>
+                <small class="text-muted">Assigned to: ...</small>
+                <br>
+                <small class="text-muted">Due to: ...</small>
+                <p class="card-text">There is soooo much cat hair. I think we can save it and make a fur coat to wear to the opera.</p>
+                <div class="dropdown">
+                  <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
+                  <ul class="dropdown-menu px-3">
+                    <li>Open - Get Started!</li> 
+                    <li>In Progress - I'm doing it!</li>
+                    <li>Closed - It's Done!</li> 
+                  </ul>
+                  <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item p-0 pb-4 border-0">                    
+            <div class="card mb-6">
+              <div class="card-header bg-success text-white font-weight-bold">Change the water in the bowl.</div>
+              <div class="card-body">
+                <span class="badge badge-success">Done!</span>
+                <br>
+                <small class="text-muted">Assigned to: ...</small>
+                <br>
+                <small class="text-muted">Due to: ...</small>
+                <p class="card-text">We need to change the water bowl. Whiskey is starting to drink from the toilet again.</p>
+                <div class="dropdown">
+                  <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
+                  <ul class="dropdown-menu px-3">
+                    <li>Open - Get Started!</li> 
+                    <li>In Progress - I'm doing it!</li>
+                    <li>Pending - Look, it's done!</li>  
+                  </ul>
+                  <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  <!--footer-->
+  <div class="row">
+    <footer class="footer">
+      <p>Final Project for <a href="https://usa.generation.org/dc/junior-web-developer/" target="_blank">Generation USA Jr. Web Developer Bootcamp.</a></p>
+      <span>Work by: 
+        <a href="https://www.linkedin.com/in/tetiana-chorna-069bab112/" target="_blank">Tetiana Chorna</a>&nbsp;|
+        <a href="#" target="_blank">Yared Nigatu</a>&nbsp;|
+        <a href="https://www.linkedin.com/in/jenna-sosa/" target="_blank">Jenna Sosa</a>&nbsp;|
+        <a href="https://www.linkedin.com/in/michael-simms-11318b201/" target="_blank">Michael Simms</a>&nbsp;|
+        <a href="https://www.linkedin.com/in/kathrynwilliams95/" target="_blank">Kathryn Williams</a>
+      </span>
+    </footer>
+  </div>
+
+</div>
 </body>
 </html>
