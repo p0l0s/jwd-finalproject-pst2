@@ -31,8 +31,7 @@ const assign = document.getElementById('assignTo');
 const taskForm = document.getElementById('taskForm');
 const error = document.getElementById('formError');
 
-// form.addEventListener('submit', = 
-// took out event listener because it's in the index.html  
+
 /*
 function formValidation() {
     let errorMessage = "";
