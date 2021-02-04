@@ -1,6 +1,8 @@
 /*const newTaskNameInput = document.querySelector('#newTaskNameInput');
 const name = newTaskNameInput.value;*/
 
+//used trim() property so that we can avoid someone just adding spaces. 
+
 const form = document.querySelector('#taskForm');
 
 const taskName = document.querySelector('#taskName');
@@ -10,7 +12,7 @@ const taskDescription = document.querySelector('#taskDescription');
 const taskDescriptionValue = taskDescription.value.trim();
 
 const assignTo = document.querySelector('#assignTo');
-const assignToValue = assignTo.value.trim();
+const assignToValue = assignTo.value;
 
 const datePicker = document.querySelector('#datepicker');
 const datePickerValue = datePicker.value.trim();
@@ -18,10 +20,10 @@ const datePickerValue = datePicker.value.trim();
 const submitButton = document.querySelector('#submit-button');
 const submitButtonValue = submitButton.value.trim();
 
-const alert = document.querySelector('#alert').hidden = true;
+const alertMessage = document.querySelector('#formError').hidden = false;
 
 // form.addEventListener('submit', = 
-// took out event listener because it's in the html. 
+// took out event listener because it's in the index.html  
 
 function formValidation() {
     let errorMessage = "";
@@ -36,8 +38,8 @@ function formValidation() {
         document.getElementById('formError').innerHTML = 'The Description was not filled out. You silly goose.';
     }
 
-    if (assignToValue === "" || assignToValue === "AssignaCatSitter") {
-        errorMessage +=("Please assign someone this task \n");
+    if (assignToValue === "Assign a Cat Sitter") {
+        errorMessage +=("Please assign someone this task. \n");
         document.getElementById('formError').innerHTML = 'Please assign this task to someone. You silly goose.';
     }
 
@@ -48,8 +50,10 @@ function formValidation() {
 
     if (errorMessage !== "") {
         alert(errorMessage);
+        document.getElementById('formError').innerHTML = errorMessage;
         return false;
     }
+}
 //Found this Youtube video helpful: https://www.youtube.com/watch?v=Pc2e2YpKArg
 //And this followup video for multiple fields: https://www.youtube.com/watch?v=xvXtb7mwMd8 
 
@@ -73,5 +77,6 @@ validFormFieldInput = (data) =>{
         console.log("Assigned To: " + assignToValue);
         console.log("Due Date: " + datePickerValue);
       }
+    }
 }
 */
