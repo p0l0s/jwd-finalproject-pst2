@@ -28,17 +28,25 @@
       <h1>New Tasks</h1>
     </div>
 
+    <form  class="was-validated">
+
     <!--Name element.-->
     <div class="row pt-3"> 
       <h3>Name:</h3>
-      <textarea class="form-control"  rows="1" id="comment"></textarea>
+      <textarea type="text" class="form-control"  rows="1" id="name" required></textarea>
+     
+      <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
     </div> 
 
     <!--Description element.-->
     <div class="row pt-3"> 
       <h3>Description:</h3>
-      <textarea class="form-control" rows="5" id="comment"></textarea>
-    </div>
+      <textarea class="form-control" rows="5" id="description" required></textarea>
+      <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+    </div> 
+    
         
     <!--Dropdown Assign to: element.-->
     <div class="row pt-3">
@@ -52,32 +60,46 @@
 
     <div class="row">
       <div class="col-sm-6 text-left p-0 pr-2">
-        <div class="dropdown">
-          <button class="btn btn-default btn-block dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Select User</button>
-          <ul class="dropdown-menu pl-2 w-100">
-            <li>Tetiana "Cat" Chorna</li>
-            <li>Michael "Maine Coon" Simms</li>
-            <li>Yared "Ocelot" Nigatu</li>
-            <li>Jenna "Jaguar" Sosa</li>
-            <li>Kathryn "Wildcat" Williams</li>
-          </ul>
-        </div>
-      </div>
+        <div class="form-group">
+
+          <select class="form-control" id="userselect" required>
+            <option selected value="">Select User</option>
+
+            <option>Tetiana "Cat" Chorna</option>
+            <option>Michael "Maine Coon" Simms</option>
+            <option>Yared "Ocelot" Nigatu</option>
+            <option>Jenna "Jaguar" Sosa</option>
+            <option>Kathryn "Wildcat" Williams</option>
+          </select>
+
+
+         
+        
+        <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+      </div></div>
       <!--Datepicker-->
       <div class="col-sm-6 p-0 pl-2">
-        <input id="datepicker" width="100%">
+        <input id="datepicker" required width="100%">
         <script>
         $('#datepicker').datepicker({
         uiLibrary: 'bootstrap4'
         });
         </script>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
       </div>
+      
     </div> 
+
+  </form>
 
     <!--Add Task Button-->
     <div class="row pt-4"> 
     <button type="button" class="btn btn-info btn-lg btn-block">Add Task</button>
     </div>
+
+  
 
     <!--Card Row for Open Tasks-->
     <div class="row pt-5">
@@ -585,5 +607,7 @@
   </div>
 
 </div>
+
+<script src="index.js"></script> 
 </body>
 </html>
