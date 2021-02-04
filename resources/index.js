@@ -1,24 +1,24 @@
 /*const newTaskNameInput = document.querySelector('#newTaskNameInput');
 const name = newTaskNameInput.value;*/
 
-//used trim() property so that we can avoid someone just adding spaces. 
+//used trim() property so that we can avoid someone just adding spaces. then decided to remove it because it would not console log properly.  
 
 const form = document.querySelector('#taskForm');
 
 const taskName = document.querySelector('#taskName');
-const taskNameValue = taskName.value.trim();
+const taskNameValue = taskName.value;
 
 const taskDescription = document.querySelector('#taskDescription');
-const taskDescriptionValue = taskDescription.value.trim();
+const taskDescriptionValue = taskDescription.value;
 
 const assignTo = document.querySelector('#assignTo');
 const assignToValue = assignTo.value;
 
 const datePicker = document.querySelector('#datepicker');
-const datePickerValue = datePicker.value.trim();
+const datePickerValue = datePicker.value;
 
 const submitButton = document.querySelector('#submit-button');
-const submitButtonValue = submitButton.value.trim();
+const submitButtonValue = submitButton.value;
 
 const alertMessage = document.querySelector('#formError').hidden = false;
 
@@ -52,6 +52,12 @@ function formValidation() {
         alert(errorMessage);
         document.getElementById('formError').innerHTML = errorMessage;
         return false;
+    }
+    else {
+        console.log("Name:  "+ taskNameValue);
+        console.log("Description:  "+ taskDescriptionValue);
+        console.log("Assigned To:  "+ assignToValue);
+        console.log("Due By:  "+ datePickerValue);
     }
 }
 //Found this Youtube video helpful: https://www.youtube.com/watch?v=Pc2e2YpKArg
