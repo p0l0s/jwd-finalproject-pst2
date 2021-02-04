@@ -27,6 +27,7 @@
 
     <!-- Add a new task form-->
     <!-- form tag will need an action attribute at some point-->
+    <!-- for bootstrap validation, need to add class="was-validated" -->
     <form id="taskForm" onsubmit="return formValidation()">
     
       <div class="row pt-3"> 
@@ -37,12 +38,18 @@
       <div class="row pt-3"> 
         <label for="taskName"><h3>Name:</h3></label>
         <input id="taskName" name="taskName" type="text" class="form-control"  rows="1" id="comment" placeholder="Kitty Task Name"></input>
+        <!-- Bootstrap validation. Also need to add required attribut above
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Give your Kitty Task a name or the cat gets shaved.</div> -->
       </div> 
 
       <!--Description element.-->
       <div class="row pt-3"> 
         <label for="taskDescription"><h3>Description:</h3></label>
         <textarea id="taskDescription" class="form-control" rows="5" id="comment" placeholder="Kitty Task Description"></textarea>
+        <!-- Bootstrap validation. Also need to add required attribut above
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Tell us what to do, or we'll do a bad job doing it.</div> -->
       </div>
         
       <!--Labels for AssignTo and Date Picker.-->
@@ -60,14 +67,19 @@
       <div class="row"> 
         <div class="col-sm-6 text-left p-0 pr-2">
           <div class="form-group">
-          <select id="assignTo" class="form-select form-select-lg mb-3" aria-label="Default select example">
-            <option selected>Assign a Cat Sitter</option>
+          <select id="assignTo" class="form-select">
+            <option selected value="">Assign a Cat Sitter</option>
             <option value="Tanya">Tetiana "Cat" Chorna</option>
             <option value="Michael">Michael "Maine Coon" Simms</option>
             <option value="Yared">Yared "Ocelot" Nigatu</option>
             <option value="Jenna">Jenna "Jaguar" Sosa</option>
             <option value="Kathryn">Kathryn "Wildcat" Williams</option>
           </select>
+          
+          <!-- Bootstrap validation. Also need to add required attribut above
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div> -->
+          
           <!-- Original dropdown code.
             <div class="dropdown">
             <button class="btn btn-default btn-block dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Select User</button>
@@ -90,12 +102,16 @@
           uiLibrary: 'bootstrap4'
           });
           </script>
+          <!-- Bootstrap validation. Also need to add required attribut above
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div> -->
         </div>
       </div> 
 
       <!--Add Task Button-->
+      <!-- Tanya added a onclick="saveFile()" action to the button-->
       <div class="row pt-4"> 
-        <button id="submit-button" type="submit" class="btn btn-info btn-lg btn-block">Add Kitty Task</button>
+        <button id="submit-button" type="submit" class="btn btn-info btn-lg btn-block" onclick="logValue ()">Add Kitty Task</button>
       </div>
 
       <!-- Bootstrap Alert Element Javascript is keeping hidden-->
