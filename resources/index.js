@@ -80,7 +80,7 @@ function logValue (){
 
 //Found this Youtube video helpful: https://www.youtube.com/watch?v=Pc2e2YpKArg
 //And this followup video for multiple fields: https://www.youtube.com/watch?v=xvXtb7mwMd8 
-//And then this video to refine it further: https://www.youtube.com/watch?v=In0nB0ABaUk&t=271s 
+//Ended up Using this method: https://www.youtube.com/watch?v=In0nB0ABaUk&t=271s 
 
 taskForm.addEventListener('submit', (e) => {
     let errorMessage = []
@@ -103,8 +103,7 @@ taskForm.addEventListener('submit', (e) => {
     if (errorMessage.length > 0) {
         e.preventDefault()
         error.innerText = errorMessage.join(' ') + ' You Silly Goose.'
-    }
-    
+    }     
 })
 
 /* This was the original attempt to create the function. 
