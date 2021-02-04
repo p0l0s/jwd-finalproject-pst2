@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <script src="index.js" defer></script>
+    <script src="resources/index.js" defer></script>
 </head>
 
 <body>
@@ -25,61 +25,88 @@
       </header>
     </div>
 
-    <div class="row pt-3"> 
-      <h1>New Tasks</h1>
-    </div>
+    <!-- Add a new task form-->
+    <!-- form tag will need an action attribute at some point-->
+    <form id="taskForm" onsubmit="return formValidation()">
+    
+      <div class="row pt-3"> 
+        <h1>New Tasks</h1>
+      </div>
+    
+      <!--Name element.-->
+      <div class="row pt-3"> 
+        <label for="taskName"><h3>Name:</h3></label>
+        <input id="taskName" name="taskName" type="text" class="form-control"  rows="1" id="comment" placeholder="Kitty Task Name"></input>
+      </div> 
 
-    <!--Name element.-->
-    <div class="row pt-3"> 
-      <h3>Name:</h3>
-      <textarea class="form-control"  rows="1" id="comment"></textarea>
-    </div> 
-
-    <!--Description element.-->
-    <div class="row pt-3"> 
-      <h3>Description:</h3>
-      <textarea class="form-control" rows="5" id="comment"></textarea>
-    </div>
+      <!--Description element.-->
+      <div class="row pt-3"> 
+        <label for="taskDescription"><h3>Description:</h3></label>
+        <textarea id="taskDescription" class="form-control" rows="5" id="comment" placeholder="Kitty Task Description"></textarea>
+      </div>
         
-    <!--Dropdown Assign to: element.-->
-    <div class="row pt-3">
-      <div class="col-sm-6 text-left p-0"> 
-        <h3>Assigned to:</h3>
-      </div>
-      <div class="col-sm-6 text-left p-0"> 
-        <h3>Due By:</h3>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-6 text-left p-0 pr-2">
-        <div class="dropdown">
-          <button class="btn btn-default btn-block dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Select User</button>
-          <ul class="dropdown-menu pl-2 w-100">
-            <li>Tetiana "Cat" Chorna</li>
-            <li>Michael "Maine Coon" Simms</li>
-            <li>Yared "Ocelot" Nigatu</li>
-            <li>Jenna "Jaguar" Sosa</li>
-            <li>Kathryn "Wildcat" Williams</li>
-          </ul>
+      <!--Labels for AssignTo and Date Picker.-->
+      <div class="row pt-3">
+        
+        <div class="col-sm-6 text-left p-0">
+          <label for="assignTo"><h3>Assigned To:</h3></label>
+        </div>
+        <div class="col-sm-6 text-left p-0"> 
+          <label for="datepicker"> <h3>Due By:</h3> </label>
         </div>
       </div>
-      <!--Datepicker-->
-      <div class="col-sm-6 p-0 pl-2">
-        <input id="datepicker" width="100%">
-        <script>
-        $('#datepicker').datepicker({
-        uiLibrary: 'bootstrap4'
-        });
-        </script>
+
+      <!--Assign To Dropdown Selector-->
+      <div class="row"> 
+        <div class="col-sm-6 text-left p-0 pr-2">
+          <div class="form-group">
+          <select id="assignTo" class="form-select form-select-lg mb-3" aria-label="Default select example">
+            <option selected>Assign a Cat Sitter</option>
+            <option value="1">Tetiana "Cat" Chorna</option>
+            <option value="2">Michael "Maine Coon" Simms</option>
+            <option value="3">Yared "Ocelot" Nigatu</option>
+            <option value="4">Jenna "Jaguar" Sosa</option>
+            <option value="5">Kathryn "Wildcat" Williams</option>
+          </select>
+          <!-- Original dropdown code.
+            <div class="dropdown">
+            <button class="btn btn-default btn-block dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Select User</button>
+            <ul class="dropdown-menu pl-2 w-100">
+              <li>Tetiana "Cat" Chorna</li>
+              <li>Michael "Maine Coon" Simms</li>
+              <li>Yared "Ocelot" Nigatu</li>
+              <li>Jenna "Jaguar" Sosa</li>
+              <li>Kathryn "Wildcat" Williams</li>
+            </ul>
+          </div> -->
+        </div>
+        </div>
+
+        <!--Datepicker-->
+        <div class="col-sm-6 p-0 pl-2">
+          <input id="datepicker" width="100%">
+          <script>
+          $('#datepicker').datepicker({
+          uiLibrary: 'bootstrap4'
+          });
+          </script>
+        </div>
+      </div> 
+
+      <!--Add Task Button-->
+      <div class="row pt-4"> 
+        <button id="submit-button" type="submit" class="btn btn-info btn-lg btn-block">Add Kitty Task</button>
       </div>
-    </div> 
 
-    <!--Add Task Button-->
-    <div class="row pt-4"> 
-    <button type="button" class="btn btn-info btn-lg btn-block">Add Task</button>
-    </div>
+      <!-- Bootstrap Alert Element Javascript is keeping hidden-->
+      <div id="formError" class="row mt-4 alert alert-dark" role="alert">
+        Eventually, error messages for form validation will be here. 
+      </div>
 
+    </form>
+
+    <!--This section is for the cards of task available to do and their status-->
+    
     <!--Card Row for Open Tasks-->
     <div class="row pt-5">
       <h3 class="text-danger">Open Tasks:</h3>
