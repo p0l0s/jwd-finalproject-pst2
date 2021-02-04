@@ -54,10 +54,10 @@ function formValidation() {
         return false;
     }
     else {
-        console.log("Name:  "+ taskNameValue);
-        console.log("Description:  "+ taskDescriptionValue);
-        console.log("Assigned To:  "+ assignToValue);
-        console.log("Due By:  "+ datePickerValue);
+        console.log("Name:  " + taskNameValue);
+        console.log("Description:  " + taskDescriptionValue);
+        console.log("Assigned To:  " + assignToValue);
+        console.log("Due By:  " + datePickerValue);
     }
 }
 //Found this Youtube video helpful: https://www.youtube.com/watch?v=Pc2e2YpKArg
