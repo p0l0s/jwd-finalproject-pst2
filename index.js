@@ -5,7 +5,33 @@ let saveFile = () => {
     const description = document.getElementById('description');
     const person = document.getElementById('person');
     const datepicker = document.getElementById('datepicker');
-   
+    const convertedDatepicker = Date.parse(datepicker.value);
+    const currentDate = new Date;
+    const todayDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+    const convertedTodayDate = Date.parse(todayDate);
+
+    
+    if(!name.value||!description.value||!person.value||!datepicker.value)
+    {
+        document.getElementById("alertm").className = "alert alert-danger";
+       
+    document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please fill all fields!";
+}
+    else if (name.value.trim() == ""||description.value.trim() == ""||person.value.trim() == "")
+    {
+        document.getElementById("alertm").className = "alert alert-danger";
+        document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please don't use only whitespaces!";}
+        
+    else if (convertedDatepicker<convertedTodayDate)
+    {console.log(convertedDatepicker);
+        console.log(convertedTodayDate);
+        document.getElementById("alertm").className = "alert alert-danger";
+        document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please assign correct date!";
+        }
+   else { 
+    document.getElementById("alertm").className = "";
+    document.getElementById("alertm").innerHTML="";
+    
     
     // This variable stores all the data.
     let data = 
@@ -32,3 +58,5 @@ let saveFile = () => {
 
     newLink.click(); 
 }
+}
+
