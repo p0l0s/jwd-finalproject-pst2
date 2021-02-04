@@ -20,7 +20,8 @@ const submitButtonValue = submitButton.value.trim();
 
 const alert = document.querySelector('#alert').hidden = true;
 
-form.addEventListener('submit', = 
+// form.addEventListener('submit', = 
+// took out event listener because it's in the html. 
 
 function formValidation() {
     let errorMessage = "";
@@ -52,7 +53,7 @@ function formValidation() {
 //Found this Youtube video helpful: https://www.youtube.com/watch?v=Pc2e2YpKArg
 //And this followup video for multiple fields: https://www.youtube.com/watch?v=xvXtb7mwMd8 
 
-/*
+/* This was the original attempt to create the function. 
 validFormFieldInput = (data) =>{
     if (taskNameValue === "") {
         alert("Name must be filled out");
