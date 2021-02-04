@@ -30,6 +30,7 @@ const assign = document.getElementById('assignTo');
 //const date = document.getElementById('datepicker');
 const taskForm = document.getElementById('taskForm');
 const error = document.getElementById('formError');
+const validationMessage = document.getElementById('valdiationMessage');
 
 
 /*
@@ -84,6 +85,7 @@ function logValue (){
 
 taskForm.addEventListener('submit', (e) => {
     let errorMessage = []
+    
     if (name1.value === '' || name1.value == null) {
         errorMessage.push('Please fill out Task Name.')
     }
@@ -168,4 +170,10 @@ let saveFile = () => {
 
     newLink.click(); 
 }
+*/
+
+/*
+const test = new TaskManager();
+test.addTask('Michael', 'is awasome', 'Jennifer', '2/2/2022');
+console.log(test.task);
 */
