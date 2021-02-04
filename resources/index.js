@@ -22,33 +22,42 @@ const submitButtonValue = submitButton.value;
 
 const alertMessage = document.querySelector('#formError').hidden = false;
 
+
+//variables used for second validation method. 
+const name1 = document.getElementById('taskName');
+const description = document.getElementById('taskDescription');
+const assign = document.getElementById('assignTo');
+//const date = document.getElementById('datepicker');
+const taskForm = document.getElementById('taskForm');
+const error = document.getElementById('formError');
+
 // form.addEventListener('submit', = 
 // took out event listener because it's in the index.html  
-
+/*
 function formValidation() {
     let errorMessage = "";
 
     if (taskNameValue === "") {
         errorMessage += "Name must be filled out. \n";
         /*document.getElementById('formError').innerHTML = 'Name not filled out. You silly goose.'; */
-        }
-
+/*        }
+/*
     if (taskDescriptionValue === "") {
         errorMessage += "Description must be filled out. \n";
         /*document.getElementById('formError').innerHTML = 'The Description was not filled out. You silly goose.'; */
-    }
+ /*   }
 
     if (assignToValue === "") {
         errorMessage += "Please assign someone this task. \n";
         /*document.getElementById('formError').innerHTML = 'Please assign this task to someone. You silly goose.'; */
-    }
+/*    }
 
     /*if (datePickerValue === "") {
         errorMessage +=("Due Date must be filled out. \n");
         document.getElementById('formError').innerHTML = 'Tells us when you would like this done by. You silly goose.';
     } */
 
-    if (errorMessage !== "") {
+ /*   if (errorMessage !== "") {
         //alert(errorMessage);
         document.getElementById('formError').innerHTML = errorMessage + "You silly goose.";
         return false;
@@ -59,17 +68,45 @@ function formValidation() {
         console.log("Assigned To:  " + assignToValue);
         console.log("Due By:  " + datePickerValue);
     }*/
-}
-
+/*}
+*/ 
+//Log Values into console after hitting submit button. Listener in html
 function logValue (){
-    console.log("Name:  " + taskName.value);
-    console.log("Description:  " + taskDescription.value);
-    console.log("Assigned To:  " + assignTo.value);
+    console.log("Name1:  " + name1.value);
+    console.log("Name2:  " + taskName.value);
+    console.log("Description:  " + description.value);
+    console.log("Assigned To:  " + assign.value);
     console.log("Due By:  " + datePicker.value);
 }
 
 //Found this Youtube video helpful: https://www.youtube.com/watch?v=Pc2e2YpKArg
 //And this followup video for multiple fields: https://www.youtube.com/watch?v=xvXtb7mwMd8 
+//And then this video to refine it further: https://www.youtube.com/watch?v=In0nB0ABaUk&t=271s 
+
+taskForm.addEventListener('submit', (e) => {
+    let errorMessage = []
+    if (name1.value === '' || name1.value == null) {
+        errorMessage.push('Please fill out Task Name.')
+    }
+
+    if (description.value === '' || description.value == null) {
+        errorMessage.push('Please tell us what to do.')
+    }
+
+    if (assign.value === '' || assign.value == null) {
+        errorMessage.push('Please assign a Cat Sitter.')
+    }
+
+    if (datePicker.value === '' || datePicker.value == null) {
+        errorMessage.push('Please set a due date.')
+    }
+
+    if (errorMessage.length > 0) {
+        e.preventDefault()
+        error.innerText = errorMessage.join(' ') + ' You Silly Goose.'
+    }
+    
+})
 
 /* This was the original attempt to create the function. 
 validFormFieldInput = (data) =>{
