@@ -30,7 +30,7 @@ function formValidation() {
 
     if (taskNameValue === "") {
         errorMessage +=("Name must be filled out. \n");
-        document.getElementById('formError').innerHTML = 'First Name not filled out. You silly goose.';
+        document.getElementById('formError').innerHTML = 'Name not filled out. You silly goose.';
         }
 
     if (taskDescriptionValue === "") {
@@ -43,14 +43,14 @@ function formValidation() {
         document.getElementById('formError').innerHTML = 'Please assign this task to someone. You silly goose.';
     }
 
-    if (datePickerValue === "") {
+    /*if (datePickerValue === "") {
         errorMessage +=("Due Date must be filled out. \n");
         document.getElementById('formError').innerHTML = 'Tells us when you would like this done by. You silly goose.';
-    }
+    } */
 
     if (errorMessage !== "") {
-        alert(errorMessage);
-        document.getElementById('formError').innerHTML = errorMessage;
+        //alert(errorMessage);
+        document.getElementById('formError').innerHTML = errorMessage + "You silly goose.";
         return false;
     }
     else {
