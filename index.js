@@ -1,38 +1,88 @@
+class TaskManager {
+    constructor(currentId)
+    {
+        this.tasks = [];
+        this.currentId = currentId;
+    }
+
+    addTask (name, description, person, datepicker, status)
+    {
+        this.tasks.push({
+            name,
+            description,
+            'assignedTo':person,
+            'dueDate':datepicker,
+            status,
+            'id':this.currentId
+        });
+        this.currentId = this.currentId + 1;
+    }
+
+    }
+
+    const task = new TaskManager(0);
+
 let saveFile = () => {
     	
     // Get the data from each element on the form.
-    const name = document.getElementById('name');
-    const description = document.getElementById('description');
-    const person = document.getElementById('person');
-    const datepicker = document.getElementById('datepicker');
-    const convertedDatepicker = Date.parse(datepicker.value);
+    const inputName = document.getElementById('name');
+    const inputDescription = document.getElementById('description');
+    const inputPerson = document.getElementById('person');
+    const inputDatepicker = document.getElementById('datepicker');
+
+   
+
+    const name = inputName.value;
+    const description = inputDescription.value;
+    const person = inputPerson.value;
+    const datepicker = inputDatepicker.value;
+
+    const status = 'open';
+    const convertedDatepicker = Date.parse(datepicker);
     const currentDate = new Date;
     const todayDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
     const convertedTodayDate = Date.parse(todayDate);
 
+   
     
-    if(!name.value||!description.value||!person.value||!datepicker.value)
+    if(!name||!description||!person||!datepicker)
     {
         document.getElementById("alertm").className = "alert alert-danger";
        
     document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please fill all fields!";
-}
-    else if (name.value.trim() == ""||description.value.trim() == ""||person.value.trim() == "")
+    }   
+    else if (name.trim() == ""||description.trim() == ""||person.trim() == "")
     {
         document.getElementById("alertm").className = "alert alert-danger";
-        document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please don't use only whitespaces!";}
+        document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please don't use only whitespaces!";
+    }
         
     else if (convertedDatepicker<convertedTodayDate)
-    {console.log(convertedDatepicker);
-        console.log(convertedTodayDate);
+    {
         document.getElementById("alertm").className = "alert alert-danger";
         document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please assign correct date!";
         }
    else { 
     document.getElementById("alertm").className = "";
     document.getElementById("alertm").innerHTML="";
+    task.addTask(name, description, person, datepicker, status);
+     // Reset fields
+     document.getElementById('name').value="";
+     document.getElementById('description').value="";
+     document.getElementById('person').value="";
+     document.getElementById('datepicker').value="";
+    
+    console.log(task.tasks);
+    //document.getElementById('name').innerHTML="";
+   }
+
+   
+
+    
+
     
     
+    /*
     // This variable stores all the data.
     let data = 
         '\r Task Name: ' + name.value + ' \r\n ' + 
@@ -42,7 +92,7 @@ let saveFile = () => {
     
     // Convert the text to BLOB.
     const textToBLOB = new Blob([data], { type: 'text/plain' });
-    const sFileName = 'formData.txt';	   // The file to save the data.
+    const sFileName = 'taskManager.js';	   // The file to save the data.
 
     let newLink = document.createElement("a");
     newLink.download = sFileName;
@@ -58,5 +108,6 @@ let saveFile = () => {
 
     newLink.click(); 
 }
+*/
 }
 
