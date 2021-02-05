@@ -4,13 +4,13 @@ class TaskManager {
         this.currentId = currentId;
     }
 
-    addTask (name, description, person, datepicker, status = 'TODO') {
+    addTask (name1, description, assign, datepick, status = 'TODO') {
         this.tasks.push({
             'id':this.currentId,
-            name,
+            name1,
             description,
-            'assignedTo': person,
-            'dueDate': datepicker,
+            'assignedTo': assign,
+            'dueDate': datepick,
             status,
             });
         this.currentId ++;
