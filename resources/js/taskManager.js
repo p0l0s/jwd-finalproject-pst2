@@ -1,17 +1,27 @@
 class TaskManager {
-    constructor(currentId = 0) {
-        this.task = ['item 1', 'item 2'];
+    constructor(currentId = 0)
+    {
+        this.tasks = [];
         this.currentId = currentId;
     }
-   addTask(name1, description, assign, datePicker, status) {
-        this.currentId ++ ;
-        this.task.push(this.currentId, name1, description, assign, datePicker, status = 'TODO')
-    } 
-} 
- 
+
+    addTask (name, description, person, datepicker, status = 'TODO')
+    {
+        this.tasks.push({
+            'id':this.currentId
+            name,
+            description,
+            'assignedTo': person,
+            'dueDate': datepicker,
+            status,
+            
+        });
+        this.currentId ++ 1;
+    }
+
+    }
    
-const test = new TaskManager();
-test.addTask('Michae', 'is awesome', 'Tanya', '12/22/2002', );
-console.log(test.task);
+//const test = new TaskManager();
+//console.log(test.task);
 
 //console.log(TaskManager);

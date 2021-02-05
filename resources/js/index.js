@@ -18,7 +18,9 @@ const datePickerValue = datePicker.value;
 const submitButton = document.querySelector('#submit-button');
 const submitButtonValue = submitButton.value;
 
-//const alertMessage = document.querySelector('#formError').hidden = false;
+//initializing the TaskManager()
+
+const task = new TaskManager(0);
 
 
 //variables used for second validation method. 
@@ -91,8 +93,7 @@ taskForm.addEventListener('submit', (e) => {
         }
 })
 
-const test = new TaskManager();
-console.log(test.task);
+
 
 
 
