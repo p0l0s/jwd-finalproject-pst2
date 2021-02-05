@@ -64,7 +64,19 @@ class TaskManager {
         });
         this.currentId = this.currentId + 1;
     }
+    render(){
+      let tasksHtmlList = [];
+      for (let i = 0; i < this.task.length; i++){
+        let currentTask = this.task[i];
+        let taskHtml = createTaskHtml(this.task[i]);
+        currentTask.push(taskHtml);
+        }
+      let tasksHtml = tasksHtmlList.join(', /n'); 
+
+        }
+    }
 
     }
 
     const task = new TaskManager(0);
+

@@ -6,8 +6,6 @@ const saveFile = () => {
     const inputPerson = document.getElementById('person');
     const inputDatepicker = document.getElementById('datepicker');
 
-   
-
     const name = inputName.value;
     const description = inputDescription.value;
     const person = inputPerson.value;
@@ -23,7 +21,7 @@ const saveFile = () => {
     
     if(!name||!description||!person||!datepicker)
     {
-        document.getElementById("alertm").className = "alert alert-danger";
+    document.getElementById("alertm").className = "alert alert-danger";
        
     document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please fill all fields!";
     }   
@@ -38,27 +36,27 @@ const saveFile = () => {
         document.getElementById("alertm").className = "alert alert-danger";
         document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please assign correct date!";
         }
-   else { 
+   
+    else { 
     document.getElementById("alertm").className = "";
     document.getElementById("alertm").innerHTML="";
     task.addTask(name, description, person, datepicker, status);
 
     console.log(task.tasks);
     
-    
-
      // Reset fields
      document.getElementById('name').value="";
      document.getElementById('description').value="";
      document.getElementById('person').value="";
      document.getElementById('datepicker').value="";
-    
-    
-    
    }
   
    const taskHtml = createTaskHtml(name, description, person, datepicker, status);
    console.log(taskHtml);
+
+   //call the render method
+   TaskManager.render();
+   console.logt(TaskManager.render());
 
 }
 
