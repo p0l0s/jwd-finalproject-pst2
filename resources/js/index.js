@@ -90,6 +90,7 @@ taskForm.addEventListener('submit', (e) => {
     
     if (errorMessage.length === 0) {
         logValue();
+        console.log(task.tasks); 
         }
 })
 
