@@ -27,11 +27,8 @@
     </div>
 
     <!-- Add a new task form-->
-    <!-- form tag will need an action attribute at some point-->
     <!-- for bootstrap validation, need to add class="was-validated" -->
-    <!-- added action to go to index page and method GET-->
-    <!-- original form Validation function is "return formValidation()"-->
-    <form id="taskForm" action="/" method="GET">
+    <form id="taskForm" action="/" method="GET" class="was-validated">
     
       <div class="row pt-3"> 
         <h1>New Tasks</h1>
@@ -41,18 +38,18 @@
       <div class="row pt-3"> 
         <label for="taskName"><h3>Name:</h3></label>
         <input id="taskName" name="taskName" type="text" class="form-control"  rows="1" id="comment" placeholder="Kitty Task Name" required></input>
-        <!-- Bootstrap validation. Also need to add required attribut above 
+        <!-- Bootstrap validation. Also need to add required attribut above -->
         <div class="valid-feedback">Valid.</div>
-        <div class="invalid-feedback">Give your Kitty Task a name or the cat gets shaved.</div> -->
+        <!-- <div class="invalid-feedback">Give your Kitty Task a name or the cat gets shaved.</div> -->
       </div> 
 
       <!--Description element.-->
       <div class="row pt-3"> 
         <label for="taskDescription"><h3>Description:</h3></label>
-        <textarea id="taskDescription" class="form-control" rows="5" id="comment" placeholder="Kitty Task Description"></textarea>
-        <!-- Bootstrap validation. Also need to add required attribut above
+        <textarea id="taskDescription" class="form-control" rows="5" id="comment" placeholder="Kitty Task Description" required></textarea>
+        <!-- Bootstrap validation. Also need to add required attribut above -->
         <div class="valid-feedback">Valid.</div>
-        <div class="invalid-feedback">Tell us what to do, or we'll do a bad job doing it.</div> -->
+        <!-- <div class="invalid-feedback">Give your Kitty Task a name or the cat gets shaved.</div> -->
       </div>
         
       <!--Labels for AssignTo and Date Picker.-->
@@ -70,7 +67,7 @@
       <div class="row"> 
         <div class="col-sm-6 text-left p-0 pr-2">
           <div class="form-group">
-          <select id="assignTo" class="form-select">
+          <select id="assignTo" class="form-select" required>
             <option selected value="">Assign a Cat Sitter</option>
             <option>Tetiana "Cat" Chorna</option>
             <option>Michael "Maine Coon" Simms</option>
@@ -79,9 +76,9 @@
             <option>Kathryn "Wildcat" Williams</option>
           </select>
           
-          <!-- Bootstrap validation. Also need to add required attribut above
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div> -->
+        <!-- Bootstrap validation. Also need to add required attribut above -->
+        <div class="valid-feedback">Valid.</div>
+        <!-- <div class="invalid-feedback">Give your Kitty Task a name or the cat gets shaved.</div> -->
           
           <!-- Original dropdown code.
             <div class="dropdown">
@@ -105,9 +102,9 @@
           uiLibrary: 'bootstrap4'
           });
           </script>
-          <!-- Bootstrap validation. Also need to add required attribut above
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div> -->
+        <!-- Bootstrap validation. Also need to add required attribut above -->
+        <div class="valid-feedback">Valid.</div>
+        <!-- <div class="invalid-feedback">Give your Kitty Task a name or the cat gets shaved.</div> -->
         </div>
       </div> 
 
@@ -121,6 +118,10 @@
       <div id="formError" class="row mt-4 alert alert-dark" role="alert">
       </div>  
 
+      
+    <div class="row pt-4" >
+      <span style="width:100%" id="alertm"></span>
+    </div>
 
     </form>
 
