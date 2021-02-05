@@ -2,7 +2,7 @@ const createTaskHtml = (name, description, person, datepicker, status) => {
     const html = `
     <div class="col-sm-6 p-0 pb-3 pr-2">
     <div class="card mb-6">
-      <div class="card-body">
+      <div class="card-body" id="newTask">
         <div class="row">
           <div class="col-sm-9">
             <h4 class="card-title">${name}</h4>
@@ -74,8 +74,6 @@ class TaskManager {
       let tasksHtml = tasksHtmlList.join(', /n'); 
 
         }
-    }
-
     }
 
     const task = new TaskManager(0);

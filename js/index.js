@@ -1,3 +1,5 @@
+const openTask = document.getElementById('openTask');
+
 const saveFile = () => {
     	
     // Get the data from each element on the form.
@@ -21,9 +23,8 @@ const saveFile = () => {
     
     if(!name||!description||!person||!datepicker)
     {
-    document.getElementById("alertm").className = "alert alert-danger";
-       
-    document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please fill all fields!";
+        document.getElementById("alertm").className = "alert alert-danger";
+        document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please fill all fields!";
     }   
     else if (name.trim() == ""||description.trim() == ""||person.trim() == "")
     {
@@ -38,8 +39,8 @@ const saveFile = () => {
         }
    
     else { 
-    document.getElementById("alertm").className = "";
-    document.getElementById("alertm").innerHTML="";
+        document.getElementById("alertm").className = "";
+        document.getElementById("alertm").innerHTML="";
     task.addTask(name, description, person, datepicker, status);
 
     console.log(task.tasks);
@@ -55,8 +56,9 @@ const saveFile = () => {
    console.log(taskHtml);
 
    //call the render method
-   TaskManager.render();
-   console.logt(TaskManager.render());
+   document.getElementById("openTask").innerHTML= TaskManager.render;;
+   //TaskManager.render;
+   //console.log(TaskManager.render);
 
 }
 
