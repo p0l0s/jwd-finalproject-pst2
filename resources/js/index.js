@@ -1,8 +1,6 @@
 /*const newTaskNameInput = document.querySelector('#newTaskNameInput');
 const name = newTaskNameInput.value;*/
 
-//used trim() property so that we can avoid someone just adding spaces. then decided to remove it because it would not console log properly.  
-
 const form = document.querySelector('#taskForm');
 
 const taskName = document.querySelector('#taskName');
@@ -20,18 +18,23 @@ const datePickerValue = datePicker.value;
 const submitButton = document.querySelector('#submit-button');
 const submitButtonValue = submitButton.value;
 
-const alertMessage = document.querySelector('#formError').hidden = false;
+//const alertMessage = document.querySelector('#formError').hidden = false;
 
 
 //variables used for second validation method. 
 const name1 = document.getElementById('taskName');
 const description = document.getElementById('taskDescription');
 const assign = document.getElementById('assignTo');
-//const date = document.getElementById('datepicker');
+const datepick = document.getElementById('datepicker');
 const taskForm = document.getElementById('taskForm');
 const error = document.getElementById('formError');
 const validationMessage = document.getElementById('valdiationMessage');
 
+//Used for checking for the date is in the past. 
+const convertedDatepicker = Date.parse(datePickerValue);
+const currentDate = new Date;
+const todayDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+const convertedTodayDate = Date.parse(todayDate);
 
 /*
 function formValidation() {
@@ -70,28 +73,32 @@ function formValidation() {
     }*/
 /*}
 */ 
-//Log Values into console after hitting submit button. Listener in html
-function logValue (){
-    console.log("Name1:  " + name1.value);
-    console.log("Name2:  " + taskName.value);
-    console.log("Description:  " + description.value);
-    console.log("Assigned To:  " + assign.value);
-    console.log("Due By:  " + datePicker.value);
-}
+
 
 //Found this Youtube video helpful: https://www.youtube.com/watch?v=Pc2e2YpKArg
 //And this followup video for multiple fields: https://www.youtube.com/watch?v=xvXtb7mwMd8 
 //Ended up Using this method: https://www.youtube.com/watch?v=In0nB0ABaUk&t=271s 
 
+//Log Values into console after hitting submit button. Listener in html
+
+function logValue (){
+    console.log(' ');
+    console.log("Name:  " + name1.value);
+    console.log("Description:  " + description.value);
+    console.log("Assigned To:  " + assign.value);
+    console.log("Due By:  " + datePicker.value);
+}
+
+
 taskForm.addEventListener('submit', (e) => {
     let errorMessage = []
     
-    if (name1.value === '' || name1.value == null) {
+    if (name1.value === '' || name1.value == null || name1.value.trim() == '') {
         errorMessage.push('Please fill out Task Name.')
     }
 
-    if (description.value === '' || description.value == null) {
-        errorMessage.push('Please tell us what to do.')
+    if (description.value === '' || description.value == null || description.value.trim() == '') {
+        errorMessage.push('Please Fill Out Description.')
     }
 
     if (assign.value === '' || assign.value == null) {
@@ -99,14 +106,33 @@ taskForm.addEventListener('submit', (e) => {
     }
 
     if (datePicker.value === '' || datePicker.value == null) {
-        errorMessage.push('Please set a due date.')
+        errorMessage.push('Please set a Due Date.')
     }
+
+    /* Tanya had created a check to see if the date was in the past. 
+    if (convertedDatepicker < convertedTodayDate){
+        console.log(convertedDatepicker);
+        console.log(convertedTodayDate);
+        document.getElementById("alertm").className = "alert alert-danger";
+        document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please assign correct date!";
+    }
+    */
 
     if (errorMessage.length > 0) {
         e.preventDefault()
-        error.innerText = errorMessage.join(' ') + ' You Silly Goose.'
-    }     
+        let error = "<strong>Error!</strong> " + errorMessage.join(' ') + ' You Silly Goose.'
+        document.getElementById("alertm").className = "alert alert-danger";
+        //error.innerText = errorMessage.join(' ') + ' You Silly Goose.'
+        document.getElementById("alertm").innerHTML = error;
+    }
+    
+    if (errorMessage.length === 0) {
+        logValue();
+        }
 })
+
+
+
 
 /* This was the original attempt to create the function. 
 validFormFieldInput = (data) =>{
