@@ -1,4 +1,5 @@
 const openTask = document.getElementById('openTask');
+const addTaskButton = document.getElementById('addTaskButton');
 
 const saveFile = () => {
     	
