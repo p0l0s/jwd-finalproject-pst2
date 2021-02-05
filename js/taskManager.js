@@ -1,3 +1,5 @@
+
+// Function for creating formatted HTML for task fields
 const createTaskHtml = (name, description, person, datepicker, status) => {
     const html = `
     <div class="col-sm-6 p-0 pb-3 pr-2">
@@ -52,6 +54,7 @@ class TaskManager {
         this.currentId = currentId;
     }
 
+    // Method to save task fields into this.tasks array in JSON format
     addTask (name, description, person, datepicker, status)
     {
         this.tasks.push({
@@ -62,9 +65,40 @@ class TaskManager {
             status,
             'id':this.currentId
         });
+        // Incrementing currentId
         this.currentId = this.currentId + 1;
     }
+    
+    // Method to read all tasks from this.tasks and generate formatted
+    // HTML for all tasks
+    render() {
+        let tasksHtmlList = [];
+       
 
+        // Iterating over each task in this.tasks array
+        for(let i=0; i<this.tasks.length; i++)
+        {
+            
+
+            // Converting task fields into HTML using createTaskHtml function
+            let taskHtml = createTaskHtml(
+                this.tasks[i]['name'],
+                this.tasks[i]['description'],
+                this.tasks[i]['assignedTo'],
+                this.tasks[i]['dueDate'],
+                this.tasks[i]['status']
+            )
+            // Adding converted task HTML to array of tasks
+            tasksHtmlList.push(taskHtml);
+            
+        }
+        // Joining array of HTML converted tasks into single string
+        let tasksHtml = tasksHtmlList.join('\n');
+        
+        return tasksHtml;
+    }
     }
 
+// Creating TaskManager object for managing tasks
     const task = new TaskManager(0);
+    
