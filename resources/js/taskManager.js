@@ -1,15 +1,18 @@
 class TaskManager {
-    constructor() {
+    constructor(currentId) {
         this.task = ['item 1', 'item 2'];
-        //currentId = 0;
-        //this.currentId = currentId;
+        currentId = 0;
+        this.currentId = currentId;
     }
-   /*addTask(name1, description, assign, datePicker, status) {
+   addTask(name1, description, assign, datePicker, status) {
         this.currentId ++ ;
         this.task.push(this.currentId, name1, description, assign, datePicker, status = 'TODO')
-    } */
+    } 
 } 
  
-//console.log(TaskManager);   
+   
+const test = new TaskManager();
+test.addTask('Michae', 'is awesome', 'Tanya', '12/22/2002', );
+console.log(test.task);
 
-
+//console.log(TaskManager);
