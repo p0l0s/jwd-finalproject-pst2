@@ -1,4 +1,4 @@
-const saveFile = () => {
+const saveTask = () => {
     	
     // Get the data from each element on the form.
     const inputName = document.getElementById('name');
@@ -13,7 +13,7 @@ const saveFile = () => {
     const person = inputPerson.value;
     const datepicker = inputDatepicker.value;
     
-    const status = 'open';
+    const status = 'closed';
 
     //Variables to check if date from datepicker is not in the past
     const convertedDatepicker = Date.parse(datepicker);
@@ -47,9 +47,9 @@ const saveFile = () => {
     document.getElementById("alertm").innerHTML="";
 
     //save task fields into this.tasks array in JSON format
-    task.addTask(name, description, person, datepicker, status);
+    tasker.addTask(name, description, person, datepicker, status);
 
-    //console.log(task.tasks);
+    //console.log(tasker.tasks);
     
     
 
@@ -58,13 +58,16 @@ const saveFile = () => {
      document.getElementById('description').value="";
      document.getElementById('person').value="";
      document.getElementById('datepicker').value="";
-     document.getElementById("openTasks").innerHTML= task.render();
 
-     //Showing a single string with HTML converted tasks after click on Add Task button 
+     tasker.render();
+     //Showing a single string with HTML converted non-closed tasks after click on Add Task 
+     document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
+     //Showing a single string with HTML converted closed tasks after click on Add Task 
+     document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
+    
 
-      document.getElementById("addTaskButton").addEventListener("click", function() {
-      document.getElementById("openTasks").innerHTML= task.render();
-    }); 
+      
+
     
     
    }
@@ -72,6 +75,39 @@ const saveFile = () => {
   
 
 }
+
+// Function to change status of task
+const changeStatus = (id) => {
+  //Change status of task to new status from dropdown status list
+  tasker.tasks[id]['status'] = document.getElementById(id).value;
+  tasker.render();
+  document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
+     document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
+}
+
+
+
+// Function to delete task
+ const deleteTask = (id) => {
+  // Find element of array with id of card to delete
+  for(let i=0; i<tasker.tasks.length; i++)
+  {
+    if (tasker.tasks[i]['id'] === id)
+    {
+      // Delete 1 element starting from id index
+      tasker.tasks.splice(i, 1);
+   break;
+    
+  }
+  
+  
+  }
+  tasker.render();
+  document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
+  document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
+      
+   
+ }
 
 
 
