@@ -1,9 +1,10 @@
 
 // Function for creating formatted HTML for task fields
 const createTaskHtml = (name, description, person, datepicker, status, id) => {
-    let badge, status1, status2, status3, optionValue1, optionValue2, optionValue3, padding;
+    let badge, status1, status2, status3, optionValue1, optionValue2, optionValue3;
     if (status === 'open')
     {
+        header = 'bg-danger text-white';
         badge = 'badge-danger';
         status0 = 'Open';
         status1 = 'Closed';
@@ -14,6 +15,7 @@ const createTaskHtml = (name, description, person, datepicker, status, id) => {
         optionValue3 = 'pending';
             }
              else if (status === 'closed') {
+                header = 'bg-success text-white';
                 badge = 'badge-success';
                 status0 = 'Closed';
                 status1 = 'In Progress';
@@ -25,6 +27,7 @@ const createTaskHtml = (name, description, person, datepicker, status, id) => {
 
             }
             else if (status === 'inprogress') {
+                header = 'bg-primary text-white';
                 badge = 'badge-primary';
                 status0 = 'In Progress';
                 status1 = 'Closed';
@@ -35,6 +38,7 @@ const createTaskHtml = (name, description, person, datepicker, status, id) => {
         optionValue3 = 'pending';
             }
                 else  {
+                    header = 'bg-warning text-dark';
                     badge = 'badge-warning';
                     status0 = 'Pending';
                     status1 = 'Closed';
@@ -44,43 +48,37 @@ const createTaskHtml = (name, description, person, datepicker, status, id) => {
                     optionValue2 = 'inprogress';
                     optionValue3 = 'open';
                 }
-        if (i % 2==0)
-        {
-            padding = 'pr-2';
-        }
-        else{
-            padding = 'pl-2';
-        }
+       
     const html = `
-    <div class="col-sm-6 p-0 pb-3 ${padding}">
+    <div class="col-sm-6 p-1">
         <div class="card mb-6">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-9">
-                    <h4 class="card-title">${name}</h4>
-                    </div>
-                    <div class="col-sm-3 text-left">
-                    <h4><span class="badge ${badge}">${status0}</span></h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                    <small class="text-muted">Assigned to: ${person}</small>
-                    </div>
-                    <div class="col-sm-6">
-                    <small class="text-muted">Due to: ${datepicker}</small>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 pt-2 pb-2">
-                    <p class="card-text">${description}.</p>
-                    </div>
-                    </div>
 
 
-                <div class="row">
-                    <div class="col-sm-8">
-                        <select class="form-control" id="${id}" onchange="changeStatus(${id})">
+        <div class="card-header ${header} h5">${name}</div>
+  <div class="card-body"><div class="row">
+  <div class="col-sm-12">
+  <h6><span class="badge ${badge}">${status0}</span></h6>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+  <small class="text-muted">Assigned to: ${person}</small>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+  <small class="text-muted">Due to: ${datepicker}</small>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12 pt-3 pb-3">
+  <p class="card-text">${description}</p>
+  </div>
+  </div>
+
+  <div class="row">
+                    <div class="col-sm-auto">
+                        <select class="form-control btn-outline-secondary w-auto" id="${id}" onchange="changeStatus(${id})">
                         <option selected value="">Change Status</option>
 
                         <option value="${optionValue1}">${status1}</option>
@@ -89,11 +87,13 @@ const createTaskHtml = (name, description, person, datepicker, status, id) => {
                     
                         </select>
                     </div>
-                        <div class="col-sm-4">
+                   
+                        <div class="col-sm-auto">
                     <button type="button" class="btn btn-default btn-outline-secondary" id="${id}" onclick="deleteTask(${id})">Delete</button>
                 
                     </div>
-                </div>
+  </div>
+  
 
 
             
@@ -150,7 +150,9 @@ class TaskManager {
                 this.tasks[i]['dueDate'],
                 this.tasks[i]['status'],
                 this.tasks[i]['id']
+                
             )
+         
 
             // Adding converted task HTML to array of tasks
                 if(this.tasks[i]['status']==='closed')
@@ -166,10 +168,15 @@ class TaskManager {
             //console.log(this.openTasksHtml);
             
         }
+
+        //Showing a single string with HTML converted non-closed tasks after click on Add Task 
+     document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
+     //Showing a single string with HTML converted closed tasks after click on Add Task 
+     document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
         
     }
     }
 
 // Creating TaskManager object for managing tasks
     const tasker = new TaskManager(0);
-    
+
