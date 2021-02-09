@@ -13,7 +13,8 @@ const saveTask = () => {
     const person = inputPerson.value;
     const datepicker = inputDatepicker.value;
     
-    const status = 'closed';
+    const status = 'open';
+    
 
     //Variables to check if date from datepicker is not in the past
     const convertedDatepicker = Date.parse(datepicker);
@@ -59,11 +60,16 @@ const saveTask = () => {
      document.getElementById('person').value="";
      document.getElementById('datepicker').value="";
 
+
+     localStorage.setItem("tasks", JSON.stringify(tasker.tasks)); 
+
+     
+
      tasker.render();
-     //Showing a single string with HTML converted non-closed tasks after click on Add Task 
-     document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
-     //Showing a single string with HTML converted closed tasks after click on Add Task 
-     document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
+    //  //Showing a single string with HTML converted non-closed tasks after click on Add Task 
+    //  document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
+    //  //Showing a single string with HTML converted closed tasks after click on Add Task 
+    //  document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
     
 
       
@@ -78,11 +84,28 @@ const saveTask = () => {
 
 // Function to change status of task
 const changeStatus = (id) => {
-  //Change status of task to new status from dropdown status list
-  tasker.tasks[id]['status'] = document.getElementById(id).value;
-  tasker.render();
-  document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
-     document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
+
+// Find element of array with id of card to change status
+for(let i=0; i<tasker.tasks.length; i++)
+{
+  if (tasker.tasks[i]['id'] === id)
+  {
+    tasker.tasks[i]['status'] = document.getElementById(id).value;
+   
+ break;
+ 
+}
+
+
+}
+localStorage.setItem("tasks", JSON.stringify(tasker.tasks)); 
+tasker.render();
+// document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
+// document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
+
+  
+  
+  
 }
 
 
@@ -97,18 +120,30 @@ const changeStatus = (id) => {
       // Delete 1 element starting from id index
       tasker.tasks.splice(i, 1);
    break;
-    
+   
   }
   
   
   }
+  localStorage.setItem("tasks", JSON.stringify(tasker.tasks)); 
   tasker.render();
-  document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
-  document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
+  // document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
+  // document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
       
    
  }
 
+ const initialPage = () => {
+
+  
+    tasker.tasks = JSON.parse(localStorage.getItem('tasks'));
+  
+console.log(tasker.tasks);
+
+ tasker.render();
+//  document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
+//  document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
+ }
 
 
 
