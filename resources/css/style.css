@@ -1,13 +1,25 @@
 
 .footer {
     padding: .5rem 0;
-    color: #81a9ff;
+    color: #fff;
+    font-weight: bold;
     text-align: center;
     background-image: url(http://placekitten.com/g/1520/80);
+    background-color: #cccccc;
     border-top: .05rem solid #e5e5e5;
     margin-top: 2rem;
     background-repeat: no-repeat;
     background-position: center;
+    border-radius: 8px;
     overflow: hidden;
-   width: 100%;
+    width: 100%;
 } 
+
+.footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer a:hover{
+    color: rgb(173, 6, 6);
+}
