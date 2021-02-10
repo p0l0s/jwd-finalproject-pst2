@@ -27,13 +27,13 @@ const createTaskHtml = (name, description, person, datepicker, status) => {
         <div class="row">
           <div class="col-sm-12 text-right">
             <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
+              <button id = "statusButton" class="btn btn-default dropdown-toggle btn-outline-secondary text-left" type="button" data-toggle="dropdown">Change Status</button>
                 <ul class="dropdown-menu pl-2">
                   <li>Closed</li>
                   <li>In Progress</li>
                   <li>Pending</li>
                 </ul>
-              <button type="button" class="btn btn-default btn-outline-secondary">Delete</button>
+              <button id = "deleteButton" type="button" class="btn btn-default btn-outline-secondary">Delete</button>
             </div>
           </div>
         </div>

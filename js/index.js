@@ -1,5 +1,9 @@
 const openTask = document.getElementById('openTask');
 const addTaskButton = document.getElementById('addTaskButton');
+const statusButton = document.getElementById('statusButton');
+const deleteButton = document.getElementById('deleteButton');
+
+
 
 const saveFile = () => {
     	
@@ -56,10 +60,15 @@ const saveFile = () => {
    const taskHtml = createTaskHtml(name, description, person, datepicker, status);
    console.log(taskHtml);
 
+   /*document.getElementById("addTaskButton").addEventListener("click", function() {
+    document.getElementById("openTasks").innerHTML= task.tasksHtml;
+    }) */
+
    //call the render method
    document.getElementById("openTask").innerHTML= TaskManager.render;;
    //TaskManager.render;
    //console.log(TaskManager.render);
+};
 
-}
+addTaskButton.addEventListener("click", saveFile);
 
