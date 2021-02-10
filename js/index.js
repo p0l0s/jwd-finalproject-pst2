@@ -112,7 +112,7 @@ const initialPage = () => {
     // Put information from JSON file to the array 
     let tasksdata = JSON.parse(localStorage.getItem('tasks'));
     // Check if array is not null. If it is not null, save read array to 'tasker.task. If it is null, leave 'tasker.tasks' as empty array
-    if(taskdata!==null)
+    if(tasksdata!==null)
     {
         tasker.tasks=tasksdata;
     }
