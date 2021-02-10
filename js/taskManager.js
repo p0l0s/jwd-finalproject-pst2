@@ -112,7 +112,7 @@ class TaskManager {
     {
         // Array to save tasks
         this.tasks = [];    
-        // Ininitial id
+        // Initial id
         this.currentId = 0;
         // Array to save HTML formated not-closed tasks
         this.openTasksHtml = []; 
