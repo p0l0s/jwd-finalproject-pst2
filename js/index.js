@@ -109,16 +109,23 @@ const changeStatus = (id) => {
 // Function to read JSON file from 'localStorage' and show tasks on the screen after a page refresh or on a new start
 const initialPage = () => {
     let temporaryId = 0;
-    // Put information from JSON file to the array with tasks
-    tasker.tasks = JSON.parse(localStorage.getItem('tasks'));
+    // Put information from JSON file to the array 
+    let tasksdata = JSON.parse(localStorage.getItem('tasks'));
+    // Check if array is not null. If it is not null, save read array to 'tasker.task. If it is null, leave 'tasker.tasks' as empty array
+    if(taskdata!==null)
+    {
+        tasker.tasks=tasksdata;
+    }
     // Search for max existing id of tasks in the array. We need its value to add unique id (max id + 1 and go on) for new tasks
     // Iterating over each task in this.tasks array
+
     for(let i=0; i<tasker.tasks.length; i++)
     {
         temporaryId = Math.max(temporaryId, tasker.tasks[i]['id']);
     }
     // Create a new unique id for future new task
     tasker.currentId = temporaryId + 1;
+
     // Show tasks on the screen (call 'render' method for 'tasker' object of 'TaskManager' class)
     tasker.render();
 }
