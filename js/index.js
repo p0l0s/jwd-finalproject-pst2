@@ -1,156 +1,124 @@
+// Function to add a new task to the screen and update JSON file in 'localStorage'
 const saveTask = () => {
     	
-    // Get the data from each element on the form.
+    // Get the data from each field of the form
     const inputName = document.getElementById('name');
     const inputDescription = document.getElementById('description');
     const inputPerson = document.getElementById('person');
     const inputDatepicker = document.getElementById('datepicker');
-
    
-
+    // Save the data from each field to variables
     const name = inputName.value;
     const description = inputDescription.value;
     const person = inputPerson.value;
     const datepicker = inputDatepicker.value;
-    
+    // Initial status for all new tasks is 'open'
     const status = 'open';
     
-
-    //Variables to check if date from datepicker is not in the past
+    // Variables to check if date from datepicker is not in the past
     const convertedDatepicker = Date.parse(datepicker);
     const currentDate = new Date;
     const todayDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
     const convertedTodayDate = Date.parse(todayDate);
-
     
-    //Checking if all fields are not empty
+    // Check if there is no empty field in the form. Show alert message if no
     if(!name||!description||!person||!datepicker)
     {
         document.getElementById("alertm").className = "alert alert-danger";
-       
-    document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please fill all fields!";
-    }   
-    //Checking if all fields don't contain only whitespaces
+        document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please fill all fields!";
+    }  
+
+    // Check if there is no field in the form contains only whitespaces
     else if (name.trim() == ""||description.trim() == ""||person.trim() == "")
     {
         document.getElementById("alertm").className = "alert alert-danger";
         document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please don't use only whitespaces!";
     }
-        //Checking if all fields don't contain only whitespaces
+        
+    // Check if date from datepicker is not in the past
     else if (convertedDatepicker<convertedTodayDate)
     {
         document.getElementById("alertm").className = "alert alert-danger";
         document.getElementById("alertm").innerHTML="<strong>Error!</strong> Please assign correct date!";
-        }
-        //Checking if date from datepicker is not in the past
-   else { 
-    document.getElementById("alertm").className = "";
-    document.getElementById("alertm").innerHTML="";
+    }
+        
+    // If all is ok do next steps
+    else 
+    { 
+        document.getElementById("alertm").className = "";
+        document.getElementById("alertm").innerHTML="";
 
-    //save task fields into this.tasks array in JSON format
-    tasker.addTask(name, description, person, datepicker, status);
+        // Save task fields into this.tasks array in JSON format (call 'addTask' method for 'tasker' object of 'TaskManager' class)
+        tasker.addTask(name, description, person, datepicker, status);
 
-    //console.log(tasker.tasks);
-    
-    
+        // Clear all fields in the form
+        document.getElementById('name').value="";
+        document.getElementById('description').value="";
+        document.getElementById('person').value="";
+        document.getElementById('datepicker').value="";
 
-     // Clear all fields
-     document.getElementById('name').value="";
-     document.getElementById('description').value="";
-     document.getElementById('person').value="";
-     document.getElementById('datepicker').value="";
-
-
-     localStorage.setItem("tasks", JSON.stringify(tasker.tasks)); 
-
-     
-
-     tasker.render();
-    //  //Showing a single string with HTML converted non-closed tasks after click on Add Task 
-    //  document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
-    //  //Showing a single string with HTML converted closed tasks after click on Add Task 
-    //  document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
-    
-
-      
-
-    
-    
-   }
-  
-  
-
+        // Add this.tasks array in JSON format to 'localStorage'  (update cuurent JSON file)
+        localStorage.setItem("tasks", JSON.stringify(tasker.tasks)); 
+   
+        // Show tasks on the screen (call 'render' method for 'tasker' object of 'TaskManager' class)
+        tasker.render(); 
+    }
 }
 
-// Function to change status of task
+// Function to change the status of task, gets id of task as parameter to define what task should be changed
 const changeStatus = (id) => {
 
-// Find element of array with id of card to change status
-for(let i=0; i<tasker.tasks.length; i++)
-{
-  if (tasker.tasks[i]['id'] === id)
-  {
-    tasker.tasks[i]['status'] = document.getElementById(id).value;
-   
- break;
- 
-}
-
-
-}
-localStorage.setItem("tasks", JSON.stringify(tasker.tasks)); 
-tasker.render();
-// document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
-// document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
-
-  
-  
-  
-}
-
-
-
-// Function to delete task
- const deleteTask = (id) => {
-  // Find element of array with id of card to delete
-  for(let i=0; i<tasker.tasks.length; i++)
-  {
-    if (tasker.tasks[i]['id'] === id)
+    // Find element of tasks array with required id to change status
+    // Iterating over each task in this.tasks array
+    for(let i=0; i<tasker.tasks.length; i++)
     {
-      // Delete 1 element starting from id index
-      tasker.tasks.splice(i, 1);
-   break;
-   
-  }
-  
-  
-  }
-  localStorage.setItem("tasks", JSON.stringify(tasker.tasks)); 
-  tasker.render();
-  // document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
-  // document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
-      
-   
- }
+        if (tasker.tasks[i]['id'] === id)
+        {
+        // Change the status of task
+        tasker.tasks[i]['status'] = document.getElementById(id).value;
+        break;
+         }
+    }
+    // Add this.tasks array in JSON format to 'localStorage' (update cuurent JSON file)
+    localStorage.setItem("tasks", JSON.stringify(tasker.tasks)); 
 
- const initialPage = () => {
+    // Show tasks on the screen (call 'render' method for 'tasker' object of 'TaskManager' class)
+    tasker.render();
+}
 
-  
+// Function to delete the task, gets id of task as parameter to define what task should be deleted
+ const deleteTask = (id) => {
+    // Find element of tasks array with required id to delete
+    // Iterating over each task in this.tasks array
+    for(let i=0; i<tasker.tasks.length; i++)
+    {
+        if (tasker.tasks[i]['id'] === id)
+            {
+            // Delete 1 element of tasks array starting from id index
+            tasker.tasks.splice(i, 1);
+            break;
+            }
+    }
+    // Add this.tasks array in JSON format to 'localStorage' (update cuurent JSON file)
+    localStorage.setItem("tasks", JSON.stringify(tasker.tasks)); 
+
+    // Show tasks on the screen (call 'render' method for 'tasker' object of 'TaskManager' class)
+    tasker.render();
+}
+
+// Function to read JSON file from 'localStorage' and show tasks on the screen after a page refresh or on a new start
+const initialPage = () => {
+    let temporaryId = 0;
+    // Put information from JSON file to the array with tasks
     tasker.tasks = JSON.parse(localStorage.getItem('tasks'));
-  
-console.log(tasker.tasks);
-
- tasker.render();
-//  document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
-//  document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
- }
-
-
-
-
-
-
-
-
-
-
+    // Search for max existing id of tasks in the array. We need its value to add unique id (max id + 1 and go on) for new tasks
+    // Iterating over each task in this.tasks array
+    for(let i=0; i<tasker.tasks.length; i++)
+    {
+        temporaryId = Math.max(temporaryId, tasker.tasks[i]['id']);
+    }
+    // Create a new unique id for future new task
+    tasker.currentId = temporaryId + 1;
+    // Show tasks on the screen (call 'render' method for 'tasker' object of 'TaskManager' class)
+    tasker.render();
+}
