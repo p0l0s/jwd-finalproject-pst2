@@ -65,7 +65,7 @@ const createTaskHtml = (name, description, person, datepicker, status, id) => {
     const html = `
     <div class="col-sm-6 p-1">
         <div class="card mb-6">
-            <div class="card-header ${header} h5">${name}</div>
+            <div class="card-header ${header} h5" onclick="editTask(${id})" role="button">${name}</div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-12">

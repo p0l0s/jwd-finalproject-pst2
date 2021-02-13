@@ -1,5 +1,5 @@
 // Function to add a new task to the screen and update JSON file in 'localStorage'
-const saveTask = () => {
+const saveTask = (currentStatus) => {
     	
     // Get the data from each field of the form
     const inputName = document.getElementById('name');
@@ -13,8 +13,8 @@ const saveTask = () => {
     const person = inputPerson.value;
     const datepicker = inputDatepicker.value;
     // Initial status for all new tasks is 'open'
-    const status = 'open';
-    
+    const status = currentStatus;
+        
     // Variables to check if date from datepicker is not in the past
     const convertedDatepicker = Date.parse(datepicker);
     const currentDate = new Date;
@@ -56,6 +56,9 @@ const saveTask = () => {
         document.getElementById('description').value="";
         document.getElementById('person').value="";
         document.getElementById('datepicker').value="";
+
+        // Change text on button (need after updateTask)
+        document.getElementById('addTaskButton').innerHTML="Save Task";
 
         // Add this.tasks array in JSON format to 'localStorage'  (update cuurent JSON file)
         localStorage.setItem("tasks", JSON.stringify(tasker.tasks)); 
@@ -128,4 +131,67 @@ const initialPage = () => {
 
     // Show tasks on the screen (call 'render' method for 'tasker' object of 'TaskManager' class)
     tasker.render();
+}
+
+const editTask = (id) => {
+
+    let currentStatus;
+
+    // Change text on 'Save Task' button
+    document.getElementById('addTaskButton').innerHTML="Update Task";
+    
+    // Find element of tasks array with required id to delete
+    // Iterating over each task in this.tasks array
+    for(let i=0; i<tasker.tasks.length; i++)
+    {
+        if (tasker.tasks[i]['id'] === id)
+            {
+            // Put the task fields to the form fields
+            document.getElementById('name').value=tasker.tasks[i]['name'];
+            document.getElementById('description').value=tasker.tasks[i]['description'];
+            document.getElementById('person').value=tasker.tasks[i]['assignedTo'];
+           
+            document.getElementById('datepicker').value=tasker.tasks[i]['dueDate'];
+            currentStatus = tasker.tasks[i]['status'];
+            deleteTask(tasker.tasks[i]['id']);
+            
+            
+            
+            break;
+            }
+           
+              
+    }
+    
+    // Change text on 'Save Task' button
+    //document.getElementById('addTaskButton').innerHTML="Add Task";
+
+    
+    let a =0;
+    console.log(a);
+    a = document.getElementById('addTaskButton').onclick;
+    console.log(a);
+    if (currentStatus==='closed')
+    {
+    document.getElementById('addTaskButton').setAttribute("onClick", "saveTask('closed')" );  
+    } else
+    if (currentStatus==='pending')
+    {
+    document.getElementById('addTaskButton').setAttribute("onClick", "saveTask('pending')" );  
+    } else
+    if (currentStatus==='inprogress')
+    {
+    document.getElementById('addTaskButton').setAttribute("onClick", "saveTask('inprogress')" );  
+    }
+    a = document.getElementById('addTaskButton').onclick;
+    console.log(a);
+    
+    
+
+    
+    // Add this.tasks array in JSON format to 'localStorage' (update cuurent JSON file)
+    //localStorage.setItem("tasks", JSON.stringify(tasker.tasks)); 
+
+    // Show tasks on the screen (call 'render' method for 'tasker' object of 'TaskManager' class)
+    //tasker.render();
 }
