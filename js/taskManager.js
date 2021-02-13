@@ -118,21 +118,38 @@ class TaskManager {
         this.openTasksHtml = []; 
         // Array to save HTML formated closed tasks   
         this.closedTasksHtml = []; 
+        this.editedId = null;
     }
 
     // Method to save task fields into this.tasks array in JSON format
     addTask (name, description, person, datepicker, status)
     {
-        this.tasks.push({
+        let temp = {
             name,
             description,
             'assignedTo':person,
             'dueDate':datepicker,
             status,
             'id':this.currentId
-        });
+        };
+        if(this.editedId===null) {
+        this.tasks.push(temp);
         // Increment id
         this.currentId = this.currentId + 1;
+        }
+        else {
+            for(let i=0; i<this.tasks.length; i++)
+            {
+                if(this.tasks[i]['id']===this.editedId)
+                {
+                temp['id']=this.editedId;
+                this.tasks[i]=temp;
+                this.editedId=null;
+                
+                }
+            }
+        }
+      
     }
     
     // Method to save all tasks from this.tasks and generate HTML code (string) for each task
