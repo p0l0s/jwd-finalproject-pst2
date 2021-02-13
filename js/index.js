@@ -58,6 +58,7 @@ const saveTask = (currentStatus) => {
         document.getElementById('datepicker').value="";
 
         // Change text on button (need after updateTask)
+        
         document.getElementById('addTaskButton').innerHTML="Save Task";
 
         // Add this.tasks array in JSON format to 'localStorage'  (update cuurent JSON file)
@@ -114,20 +115,24 @@ const initialPage = () => {
     let temporaryId = 0;
     // Put information from JSON file to the array 
     let tasksdata = JSON.parse(localStorage.getItem('tasks'));
+    console.log(tasksdata);
     // Check if array is not null. If it is not null, save read array to 'tasker.task. If it is null, leave 'tasker.tasks' as empty array
-    if(tasksdata!==null)
+    if(tasksdata.length!== 0)
     {
         tasker.tasks=tasksdata;
-    }
-    // Search for max existing id of tasks in the array. We need its value to add unique id (max id + 1 and go on) for new tasks
-    // Iterating over each task in this.tasks array
+        // Search for max existing id of tasks in the array. We need its value to add unique id (max id + 1 and go on) for new tasks
+        // Iterating over each task in this.tasks array
 
-    for(let i=0; i<tasker.tasks.length; i++)
-    {
-        temporaryId = Math.max(temporaryId, tasker.tasks[i]['id']);
+        for(let i=0; i<tasker.tasks.length; i++)
+        {
+            temporaryId = Math.max(temporaryId, tasker.tasks[i]['id']);
+        }
+        // Create a new unique id for future new task
+        tasker.currentId = temporaryId + 1;
+        
     }
-    // Create a new unique id for future new task
-    tasker.currentId = temporaryId + 1;
+
+    
 
     // Show tasks on the screen (call 'render' method for 'tasker' object of 'TaskManager' class)
     tasker.render();
@@ -153,9 +158,9 @@ const editTask = (id) => {
            
             document.getElementById('datepicker').value=tasker.tasks[i]['dueDate'];
             currentStatus = tasker.tasks[i]['status'];
-            deleteTask(tasker.tasks[i]['id']);
+           //deleteTask(tasker.tasks[i]['id']);
             
-            
+            tasker.editedId = tasker.tasks[i]['id'];
             
             break;
             }
