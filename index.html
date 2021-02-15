@@ -29,14 +29,14 @@
       <h1>New Tasks</h1>
     </div>
 
-    <!--set form need to be validated-->
+    <!--Sets form need to be validated. Shows errors if any field is empty-->
     <form class="was-validated">
 
       <!--Name element-->
       <div class="row pt-3"> 
         <h3>Name:</h3>
         <textarea type="text" class="form-control"  rows="1" id="name" required></textarea>
-        <!--Validation Messages-->
+        <!--Validation messages-->
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div> 
@@ -45,7 +45,7 @@
       <div class="row pt-3"> 
         <h3>Description:</h3>
         <textarea class="form-control" rows="5" id="description" required></textarea>
-        <!--Validation Messages-->
+        <!--Validation messages-->
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div> 
@@ -91,12 +91,13 @@
         </div>
       </div> 
 
-      <!--show alert if there is no empty field in the form (activated by saveTask function)-->
+      <!--Shows alert if there is any empty field in the form (activated by saveTask function)
+      (performs second validation, first one is performed by bootstrap)-->
       <div class="row pt-4" >
         <span style="width:100%" id="alertm"></span>
       </div>
 
-      <!--'Add Task' Button. Activate 'saveTask' function-->
+      <!--'Add Task' Button. Activates 'saveTask' function-->
       <div class="row pt-4"> 
         <button type="button" class="btn btn-info btn-lg btn-block" id="addTaskButton" onclick="saveTask('open')">Add Task</button>
       </div>
@@ -107,165 +108,16 @@
     <div class="row pt-5">
       <h3 class="text-danger">Open Tasks:</h3>
     </div>
-    <!--Add a single string with HTML code for non-closed tasks from 'saveTask' function after click on 'Add Task'-->
+    <!--Here will be added a single string with HTML code for non-closed tasks from 'saveTask' function after click on 'Add Task'-->
     <div class="row" id="openTasks"></div>
       
     <!--Card Deck for Closed Tasks-->
     <div class="row pt-5">
       <h3 class="text-success">Closed Tasks:</h3>
     </div>
-    <!--Add a single string with HTML code for closed tasks 'saveTask' function after click on 'Add Task' -->
+    <!--Here will be added a single string with HTML code for closed tasks 'saveTask' function after click on 'Add Task' -->
     <div class="row" id="closedTasks"></div>
           
-    <!--List group for the open task cards-->
-    <!-- <div class="row">
-      <div class="col-sm-6 mt-5 text-left p-0 pr-2"> 
-      <h3 class="text-danger">Open Tasks</h3>
-        <ul class="list-group text-left">
-          <li class="list-group-item p-0 pb-4 border-0">
-            <div class="card mb-6">
-              <div class="card-header bg-primary text-white font-weight-bold">Fancy Cat Title</div>
-              <div class="card-body">
-                <span class="badge badge-primary">In Progress</span>
-                <br>
-                <small class="text-muted">Assigned to: ...</small>
-                <br>
-                <small class="text-muted">Due to: ...</small>
-                <p class="card-text">Empty the kitty litter</p>
-                <div class="dropdown">
-                  <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
-                  <ul class="dropdown-menu px-3">
-                    <li>Open - Get Started!</li> 
-                    <li>Pending - Look, it's done!</li>
-                    <li>Closed - It's Done!</li>
-                  </ul>
-                  <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item p-0 pb-4 border-0">
-            <div class="card mb-6">
-              <div class="card-header bg-danger text-white font-weight-bold">New Kitty Adoption Task Title</div>
-              <div class="card-body">
-                <span class="badge badge-danger">Open</span>
-                <br>
-                <small class="text-muted">Assigned to: ...</small>
-                <br>
-                <small class="text-muted">Due to: ...</small>
-                <p class="card-text">Adopt a new kitty and give it a new name. The cuteness of the name should be the same as the cuteness of the kitty.</p>
-                <div class="dropdown">
-                  <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
-                  <ul class="dropdown-menu px-3">
-                    <li>In Progress - I'm doing it!</li> 
-                    <li>Pending - Look, it's done!</li>
-                    <li>Closed - It's Done!</li>
-                  </ul>
-                  <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item p-0 pb-4 border-0">
-            <div class="card mb-6">
-              <div class="card-header bg-primary text-white font-weight-bold">Just another Task Title</div>
-              <div class="card-body">
-                <span class="badge badge-primary">In Progress</span>
-                <br>
-                <small class="text-muted">Assigned to: ...</small>
-                <br>
-                <small class="text-muted">Due to: ...</small>
-                <p class="card-text">How many of these do we have to create? Do we have too many kitties?</p>
-                <div class="dropdown">
-                  <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
-                  <ul class="dropdown-menu px-3">
-                    <li>Open - Get Started!</li> 
-                    <li>Pending - Look, it's done!</li>
-                    <li>Closed - It's Done!</li>
-                  </ul>
-                  <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="col-sm-6 mt-5 text-left p-0 pl-2">
-        <h3 class="text-success">Closed Tasks</h3> 
-        <ul class="list-group text-left">
-          <li class="list-group-item p-0 pb-4 border-0">
-            <div class="card mb-6">
-              <div class="card-header bg-success text-white font-weight-bold">Take Whiskey the Cat for a Walk</div>
-              <div class="card-body">
-                <span class="badge badge-success">Done!</span>
-                <br>
-                <small class="text-muted">Assigned to: ...</small>
-                <br>
-                <small class="text-muted">Due to: ...</small>
-                <p class="card-text">It's a sunny day. Take the cat for a walk.</p>
-                <div class="dropdown">
-                  <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
-                    <ul class="dropdown-menu px-3">
-                      <li>Open - Get Started!</li> 
-                      <li>In Progress - I'm doing it!</li>
-                      <li>Pending - Look, it's done!</li>  
-                    </ul>
-                  <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item p-0 pb-4 border-0">
-            <div class="card mb-6">
-              <div class="card-header bg-warning font-weight-bold">Brush cat fur off of sofa.</div>
-              <div class="card-body">
-                <span class="badge badge-warning">Pending</span>
-                <br>
-                <small class="text-muted">Assigned to: ...</small>
-                <br>
-                <small class="text-muted">Due to: ...</small>
-                <p class="card-text">There is soooo much cat hair. I think we can save it and make a fur coat to wear to the opera.</p>
-                <div class="dropdown">
-                  <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
-                  <ul class="dropdown-menu px-3">
-                    <li>Open - Get Started!</li> 
-                    <li>In Progress - I'm doing it!</li>
-                    <li>Closed - It's Done!</li> 
-                  </ul>
-                  <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item p-0 pb-4 border-0">                    
-            <div class="card mb-6">
-              <div class="card-header bg-success text-white font-weight-bold">Change the water in the bowl.</div>
-              <div class="card-body">
-                <span class="badge badge-success">Done!</span>
-                <br>
-                <small class="text-muted">Assigned to: ...</small>
-                <br>
-                <small class="text-muted">Due to: ...</small>
-                <p class="card-text">We need to change the water bowl. Whiskey is starting to drink from the toilet again.</p>
-                <div class="dropdown">
-                  <button class="btn btn-success dropdown-toggle btn-outline-secondary text-left text-body" type="button" data-toggle="dropdown">Change Status</button>
-                  <ul class="dropdown-menu px-3">
-                    <li>Open - Get Started!</li> 
-                    <li>In Progress - I'm doing it!</li>
-                    <li>Pending - Look, it's done!</li>  
-                  </ul>
-                  <button type="button" class="btn btn-danger btn-outline-secondary text-body">Delete</button>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-     -->
-
     <!--footer-->
     <div class="row">
       <footer class="footer">

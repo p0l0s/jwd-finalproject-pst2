@@ -12,11 +12,11 @@ const createTaskHtml = (name, description, person, datepicker, status, id) => {
         badge = 'badge-danger';
         // Badge text
         status0 = 'Open';
-        // 'Change Status' options text
+        // 'Changes Status' options text
         status1 = 'Closed';
         status2 = 'In Progress';
         status3 = 'Pending';
-        // 'Change Status' options ids
+        // 'Changes Status' options ids
         optionValue1 = 'closed';
         optionValue2 = 'inprogress';
         optionValue3 = 'pending';
@@ -118,12 +118,14 @@ class TaskManager {
         this.openTasksHtml = []; 
         // Array to save HTML formated closed tasks   
         this.closedTasksHtml = []; 
+        // id which used if we call 'saveTask' in 'editTask' function
         this.editedId = null;
     }
 
     // Method to save task fields into this.tasks array in JSON format
     addTask (name, description, person, datepicker, status)
     {
+        // Temporary array, we will need if we call 'saveTask' function to save the edited task
         let temp = {
             name,
             description,
@@ -132,24 +134,28 @@ class TaskManager {
             status,
             'id':this.currentId
         };
+        // Checks if we save a new task ('this.editedId' is null)
         if(this.editedId===null) {
         this.tasks.push(temp);
-        // Increment id
+        // Increments 'this.currentId' to have an unique id for a future task
         this.currentId = this.currentId + 1;
         }
+        // Checks if we edit an existing task ('this.editedId' is not null)
         else {
             for(let i=0; i<this.tasks.length; i++)
             {
+                // Founds the edited task 
                 if(this.tasks[i]['id']===this.editedId)
                 {
+                // Saves id which used if we call 'saveTask' in 'editTask' function
                 temp['id']=this.editedId;
+                // Saves edited task
                 this.tasks[i]=temp;
+                // Sets 'this.editedId' back to null
                 this.editedId=null;
-                
                 }
             }
         }
-      
     }
     
     // Method to save all tasks from this.tasks and generate HTML code (string) for each task
@@ -160,10 +166,10 @@ class TaskManager {
         // Array with HTML codes (string) for each task (closed tasks)
         this.closedTasksHtml = [];
 
-        // Iterating over each task in this.tasks array
+        // Iterates over each task in this.tasks array
         for(let i=0; i<this.tasks.length; i++)
         {
-            // Convert task fields into HTML for each task using createTaskHtml function
+            // Converts task fields into HTML for each task using createTaskHtml function
             let taskHtml = createTaskHtml(
             this.tasks[i]['name'],
             this.tasks[i]['description'],
@@ -173,7 +179,7 @@ class TaskManager {
             this.tasks[i]['id']
             )
 
-            // Add HTML for each tasks to different arrays of tasks (closed and non-closed tasks)
+            // Adds HTML for each tasks to different arrays of tasks (closed and non-closed tasks)
             if(this.tasks[i]['status']==='closed')
                 {
                     this.closedTasksHtml.push(taskHtml); 
@@ -184,15 +190,14 @@ class TaskManager {
                 }
         }
 
-    // Add a single string with HTML code for non-closed tasks in 'index.html' after click on 'Add Task' 
+    // Adds a single string with HTML code for non-closed tasks in 'index.html' after click on 'Add Task' 
      document.getElementById("openTasks").innerHTML= tasker.openTasksHtml.join('\n');
-    // Add a single string with HTML code for closed tasks in 'index.html' after click on 'Add Task'  
+    // Adds a single string with HTML code for closed tasks in 'index.html' after click on 'Add Task'  
      document.getElementById("closedTasks").innerHTML= tasker.closedTasksHtml.join('\n');
     }
 }
 
 
-
-// CreateTaskManager object for managing tasks
+// Creates 'TaskManager' object for managing tasks
 const tasker = new TaskManager();
 
