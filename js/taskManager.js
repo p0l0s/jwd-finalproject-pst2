@@ -201,3 +201,6 @@ class TaskManager {
 // Creates 'TaskManager' object for managing tasks
 const tasker = new TaskManager();
 
+module.exports = TaskManager;
+
+
