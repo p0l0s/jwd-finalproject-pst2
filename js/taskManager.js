@@ -63,43 +63,27 @@ const createTaskHtml = (name, description, person, datepicker, status, id) => {
      
     // Variable to save HTML code for each task
     const html = `
-    <div class="col-sm-6 p-1">
-        <div class="card mb-6">
+    <div class="col-4 p-2">
+        <div class="card mb-4">
             <div class="card-header ${header} h5" onclick="editTask(${id})" role="button">${name}</div>
             <div class="card-body">
+                <h6><span class="badge ${badge}">${status0}</span></h6>
+                <small class="text-muted">Assigned to: ${person}</small><br>
+                <small class="text-muted">Due to: ${datepicker}</small>
+                <p class="card-text mt-2">${description}</p>
                 <div class="row">
-                    <div class="col-sm-12">
-                        <h6><span class="badge ${badge}">${status0}</span></h6>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <small class="text-muted">Assigned to: ${person}</small>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <small class="text-muted">Due to: ${datepicker}</small>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 pt-3 pb-3">
-                        <p class="card-text">${description}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-auto">
-                        <select class="form-control btn-outline-secondary w-auto" id="${id}" onchange="changeStatus(${id})">
+                    <div class="col">
+                        <select class="form-control btn-outline-secondary pl-2" id="${id}" onchange="changeStatus(${id})">
                         <option selected value="">Change Status</option>
                         <option value="${optionValue1}">${status1}</option>
                         <option value="${optionValue2}">${status2}</option>
                         <option value="${optionValue3}">${status3}</option>
                         </select>
                     </div>
-                    <div class="col-sm-auto">
+                    <div class="col">
                         <button type="button" class="btn btn-default btn-outline-secondary" id="${id}" onclick="deleteTask(${id})">Delete</button>
                     </div>
-                </div>       
+                </div>
             </div>
         </div>
     </div>`;
