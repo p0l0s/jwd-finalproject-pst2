@@ -4,6 +4,7 @@
   },
   "devDependencies": {
     "jsdom": "16.4.0",
-    "jsdom-global": "3.0.2"
+    "jsdom-global": "3.0.2",
+    "mocha": "^8.3.0"
   }
 }
